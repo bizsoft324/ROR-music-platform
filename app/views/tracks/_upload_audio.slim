@@ -1,0 +1,19 @@
+.beat-uploading__upload-content class="#{'hidden' if @track.errors.present? || @track.id}" data-upload-content='true'
+  h3.is-hidden-mobile UPLOAD A BEAT
+  .columns.is-gapless.form-container
+    .column.is-12
+      - unless @track.id
+        .beat-uploading__file
+          = f.label :audio, for: 'upload-audio' do
+            .beat-uploading__choose-file
+              | UPLOAD
+          = f.file_field :audio, data: { dnd: true }, class: 'hidden beat-uploading__dnd', id: 'upload-audio', accept: 'audio/mpeg, audio/mp3, audio/ogg, audio/x-aiff, audio/flac, application/octetstream'
+          div data-dragover=''
+          p then choose beats to import
+    / #hide until fix import from soundcloud
+    / .column.is-6
+    /   .beat-uploading__file
+    /     .beat-uploading__choose-file.beat-uploading__choose-file--scloud
+    /       = link_to soundcloud_tracks_path do
+    /         = image_tag 'soundcloud-logo.png'
+    /     p.is-hidden-mobile then choose beats to import

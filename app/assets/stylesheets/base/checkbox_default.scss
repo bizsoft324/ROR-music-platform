@@ -1,0 +1,27 @@
+ .checkbox-default {
+  .toggle-label {
+    font-size: 15px;
+    font-weight: normal;
+    padding: 0;
+  }
+  .toggle-checkbox {
+    border: 1px solid $primary;
+    width: 20px;
+    height: 20px;
+    color: white;
+    margin-right: 15px;
+    font-size: 18px;
+    display: inline-block;
+  }
+
+  .toggle-input {
+    display: none !important;
+
+    &:not(checked) ~ .toggle-label {
+      ~ .toggle-checkbox::before { content: ''; }
+    }
+  }
+  .toggle-input:checked ~ .toggle-label {
+    .toggle-checkbox { background-color: $primary; }
+  }
+}

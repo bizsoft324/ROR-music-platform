@@ -1,0 +1,74 @@
+.fixed-player-mobile
+  height: 100vh
+  position: fixed
+  z-index: 550
+  bottom: -85vh
+  width: 100%
+  background-color: $lightgray
+  transition: all $transition-time-fast ease-in-out
+
+  p.comment-message
+    margin-top: 30px
+    text-align: center
+
+  &__player-card
+    background-color: white
+    width: auto
+    margin: 0 auto
+
+    p.info
+      padding: 5px 0px 0px 20px
+      margin: 0px
+
+
+  &__critique-card
+    background-color: white
+    width: 95%
+    margin: 15px auto
+
+  &__btn-expand-player
+    position: relative
+    &:after
+      display: block
+      content: "\f0d8"
+      position: absolute
+      top: 75%
+      right: 25px
+      margin: 15px 0 0
+      font-family: FontAwesome
+      font-size: 25px
+      line-height: 1em
+      color: $primary
+      z-index: 500
+
+  &__comment-form
+    position: absolute
+    bottom: 0px
+    width: 100%
+    background: white
+    height: 55px
+
+    form
+      width: 80%
+      height: 70px
+
+      .textarea
+        border: none
+        height: 100px
+        padding: 15px
+
+  &__btn-send
+    float: right
+    position: absolute
+    top: 0
+    right: 0px
+    text-align: center
+    line-height: 2.5
+    background: $primary
+    padding: 10px 20px
+    font-color: white
+    color: white
+
+  &__comments-wrapper
+    height: 78vh
+    overflow: scroll

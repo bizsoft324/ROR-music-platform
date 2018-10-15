@@ -1,0 +1,83 @@
+.mobile-sign-up-wrapper
+  position: fixed
+  width: 100%
+  height: 100%
+  z-index: 200
+  background: white url(brand.png) no-repeat fixed 20px 99%
+  background-size: 50px
+  overflow: auto
+
+  .button
+    margin: 0 auto
+    display: flex
+
+    .uk-icon-envelope, .uk-icon-soundcloud, .uk-icon-twitter
+      margin: auto
+
+  .logins
+    padding: 100px 0px
+    width: 290px
+    margin: 0 auto
+
+    .unique-login
+      padding: 40px 0px
+
+    .button
+      height: auto
+
+      &.email
+        padding: 20px 0
+
+        .uk-icon-envelope
+          font-size: 36px
+
+      &.soundcloud, &.twitter
+        width: 100%
+        padding: 20px
+
+    .social-login
+
+      .button
+
+        &.soundcloud
+          float: left
+
+        &.twitter
+          float: right
+
+  .form-create-account
+    padding: 20px
+    width: 100%
+
+  .sign_in__top
+    display: none
+
+  #sign-up-form
+    input, select
+      &.input-form
+        margin: 20px auto
+        width: 100%
+
+    .checkbox-default
+      margin: auto
+
+    .next-form
+      @extend .button
+      @extend .is-primary
+      @extend .is-submit
+      position: fixed
+      bottom: 200px
+      right: 20px
+
+    span.error
+      font-size: 12px
+      display: block
+      width: 100%
+      font-weight: 500
+      text-transform: uppercase
+      float: right
+      padding: 0px
+      margin-top: -10px
+      max-height: 35px
+      line-height: 15px
+      position: absolute

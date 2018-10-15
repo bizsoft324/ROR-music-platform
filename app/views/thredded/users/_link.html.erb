@@ -1,0 +1,9 @@
+<% if user %>
+  <% if !user.thredded_anonymous? %>
+<a href="<%= artist_track_list_path(artist_id: user.id) %>"><%= user.thredded_display_name %></a>
+  <% else %>
+<%= user.thredded_display_name %>
+  <% end %>
+<% else %>
+<em><%= t 'thredded.null_user_name' %></em>
+<% end %>

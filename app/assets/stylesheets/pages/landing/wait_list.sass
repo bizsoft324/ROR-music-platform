@@ -1,0 +1,86 @@
+.wait-list
+
+  &__content
+    width: 100%
+    background-image: image-url("b-g-image.png")
+    padding: 44px 0 0
+    background-size: initial
+    background-repeat: no-repeat
+
+    h1
+      font-weight: 300
+      font-size: 40px
+      line-height: 1
+      color: $white
+      margin-top: 2rem
+
+  &__bottom
+    padding: 60px 0 50px
+    text-align: center
+
+    img
+      width: 37px
+
+    ul
+      margin: 0
+
+    li
+      display: inline-block
+
+    a
+      font-size: 14px
+      letter-spacing: 0.4px
+      color: $primary
+      text-transform: uppercase
+
+  &__rectangle
+    background-color: $white
+    padding: 48px 40px 0
+    margin: 30px auto 20px
+    max-width: 90%
+
+    h1
+      font-size: 27px
+      color: $darktext
+      margin: 0
+      text-align: center
+
+    .button
+      background-color: $primary
+      border: 0 none
+      border-radius: 0
+      color: $white
+      font-size: 15px
+      letter-spacing: 2.2px
+      line-height: 5px
+      padding: 25px 20px
+
+    .button.inactive
+      background-color: $gray-accent
+
+  &__footer
+    text-align: right
+
+  &__form
+    padding-bottom: 0
+
+    &.animated
+      animation-iteration-count: 1
+
+    input
+      width: 75%
+      display: block
+      font-size: 22px
+      color: $darktext
+      border: none
+      box-shadow: none
+      margin: 1.9rem 0 0px
+      line-height: 3em
+      border-bottom: 1px solid $darktext
+      font-family: "Yantramanav", sans-serif
+      font-weight: 300
+
+      &:focus
+        padding: 0 1em
+        outline : none
+        background-color: $lightgray

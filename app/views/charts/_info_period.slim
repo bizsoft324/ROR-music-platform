@@ -1,0 +1,11 @@
+- period = params[:period] || 'by_week_charts'
+.is-pulled-left
+  h4
+    - if period == "by_week_charts"
+      = I18n.t(period, scope: 'charts.info_period', date: Time.zone.now.beginning_of_week.strftime('%B %e').squeeze)
+    - elsif period == "by_month_charts"
+      = I18n.t(period, scope: 'charts.info_period', date: Time.zone.now.beginning_of_week.strftime('%B').squeeze)
+    - else
+      = I18n.t(period, scope: 'charts.info_period', date: Time.zone.now.strftime('%B %e').squeeze)
+.is-pulled-right.sort-filter.select-input data-selectinput='true'
+  = select '', :direction, options_for_select([['Newest - Oldest', 'desc'], ['Oldest - Newest', 'asc']], params[:direction]), {}, data: { remote: true, url: charts_path(period: period), method: :get }, id: 'charted-order-by'

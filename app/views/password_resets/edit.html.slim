@@ -1,0 +1,9 @@
+.pass
+  h1 Update Password
+  .pass__form
+    = simple_form_for @user, url: password_reset_path(params[:id]) do |f|
+      = f.input_field :password, label: false, placeholder: 'Password', autofocus: true, 'data-parsley-required' => "true", 'data-parsley-required-message' => "password required", 'data-parsley-minlength' => "8", 'data-parsley-minlength-message' => "password should have min 8 characters"
+      = f.full_error :password
+      = f.input_field :password_confirmation, label: false, placeholder: 'Password (must match above)', autofocus: true, 'data-parsley-required' => "true", 'data-parsley-required-message' => "password confirmation required", 'data-parsley-equalto'=> "#user_password", 'data-parsley-equalto-message' => "password doesn't match"
+      = f.full_error :password_confirmation
+      = f.button :button, 'SAVE', data: { disable_with: spinner_loader }

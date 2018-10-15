@@ -1,0 +1,14 @@
+- cache ['ratings', track] do
+  ul.beat__ratings id="rating_list_#{track.id}" data-turbolinks="false"
+    li.like
+      = rating_link track.id, 'fire', 'like'
+      span id="like_#{track.id}"
+        | #{track.like_count}
+    li.indifferent
+      = rating_link track.id, 'sad', 'indifferent'
+      span id="indifferent_#{track.id}"
+        | #{track.indifferent_count}
+    li.dislike
+      = rating_link track.id, 'unlike', 'dislike'
+      span id="dislike_#{track.id}"
+        | #{track.dislike_count}

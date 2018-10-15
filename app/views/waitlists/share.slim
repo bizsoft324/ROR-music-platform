@@ -1,0 +1,61 @@
+- my_url    = Prefinery.get_tester_share_link(@user)
+- mail_link = "mailto:?to=&body=#{my_url}"
+- sms_link  = "sms:?body=#{my_url}"
+- twitter_link  = "javascript:window.open('https://twitter.com/intent/tweet?url=#{my_url}', 'popup', 'height=500, width=500')"
+- facebook_link = "javascript:window.open('http://www.facebook.com/sharer.php?u=#{my_url}', 'popup', 'height=500, width=500')"
+- tumblr_link   = "javascript:window.open('http://www.tumblr.com/share/link?url=#{my_url}', 'popup', 'height=500, width=500')"
+- google_link   = "javascript:window.open('https://plus.google.com/share?url=#{my_url}', 'popup', 'height=500, width=500')"
+
+.columns.is-gapless
+  .column
+    .confirm__email.confirm__email--share
+      .container
+        center
+          a href="#"
+            = image_tag 'brand@3x.png', class: "space"
+        center
+          h1 Thanks!
+        p
+          = "You are ##{@position} on the waiting list."
+          span  Using your unique link below, refer 5 friends to join the waitlist and get access to BeatThread today!
+
+        .columns
+          .column.is-8.is-offset-2
+            .share__rectangle
+              .share__social-buttons
+                ul
+                  li
+                    a href=mail_link
+                      i.email.uk-icon-envelope
+                  li
+                    a href=sms_link
+                      i.sms.uk-icon-commenting
+                  li
+                    a href=twitter_link
+                      i.twitter.uk-icon-twitte
+                  li
+                    a href=facebook_link
+                      i.facebook.uk-icon-facebook
+                  li
+                    a href=tumblr_link
+                      i.tumblr.uk-icon-tumblr
+                  li
+                    a href=google_link
+                      i.google.uk-icon-google-plus
+              h2
+                center YOUR UNIQUE REFERRAL LINK
+              .share__link
+                = link_to "https://beatthread.com#{invite_member_path(@user.tester_id)}", my_url, id: 'share-link'
+
+                a data-clipboard-target='#share-link' href='#' copy
+
+        .columns
+          .column
+            .wait-list__bottom
+              center
+                = image_tag 'BT-logo.1.svg'
+              ul
+                li
+                  a href="#"  Real feedback.
+                li
+                  a href="#"  More Placements.

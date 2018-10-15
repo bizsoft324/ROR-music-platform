@@ -1,0 +1,18 @@
+li.comment.media
+  .comment__top.media-left
+    = image_tag comment.user.avatar.url
+    h5 #{comment.user.username}
+    span #{time_ago_in_words(comment.created_at).gsub('about','')} ago
+  .comment__body.media-content
+    p = comment.body
+  .media-right.dropdown.dropdown--comment
+    label for="drop_#{comment.id}"
+    input type='checkbox' id="drop_#{comment.id}"
+    .dropdown__content
+      .dropdown__top
+        .dropdown__right-group
+          label
+      .dropdown__center
+        = link_to 'Share', 'javascript:void(0);'
+        = mail_to 'Team@BeatThread.com', 'Flag comment'
+        = mail_to 'Team@BeatThread.com', 'Report user'

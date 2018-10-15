@@ -1,0 +1,13 @@
+.soundbites
+  br
+  br
+  h1 Listing soundbites example
+  hr
+  - @soundbites.each do |soundbite|
+    = soundbite_player(soundbite)
+    = link_to 'Edit', edit_soundbite_path(soundbite)
+    = link_to 'Destroy', soundbite, data: { confirm: 'Are you sure?' }, method: :delete
+    br
+  br
+  hr
+  = link_to 'New Soundbite', new_soundbite_path

@@ -1,0 +1,97 @@
+.dropdown
+  height: 70px
+  padding: 18px 25px 0 0
+
+  &--comment
+    position: relative
+    height: auto
+    padding: 0 30px
+
+    .dropdown__content
+      right: 0
+      top: -20px
+      min-width: 250px
+
+    .dropdown__top
+      position: absolute
+      right: 20px
+      top: 20px
+      border-bottom: none
+
+    .dropdown__center
+      margin: 20px
+
+  label
+    display: inline-block
+    background-image: image-url("loader.png")
+    background-position: center center
+    background-repeat: no-repeat
+    width: 36px
+    height: 36px
+
+  input
+    width: 0
+    opacity: 0
+
+  input:focus ~ .dropdown__content
+    visibility: visible!important
+
+  img
+    left: 20px
+    width: 40px
+    height: 40px
+    position: relative
+
+  a
+    display: block
+    margin: 25px
+    color: $primary
+    font-size: 14px
+    font-weight: 500
+    letter-spacing: 1.9px
+    text-transform: uppercase
+
+  a.inactive
+    color: $lighttext
+    pointer-events: none
+
+  &__content
+    visibility: hidden!important
+    right: 36px
+    top: 0
+    min-width: 350px
+    background: $white
+    position: absolute
+    box-shadow: 0 15px 100px $dark-gray
+    transition: visibility $transition-time ease-in-out
+
+  &__top
+    display: flex
+    height: 70px
+    border-bottom: 1px solid $gray-accent
+
+    span
+      padding: 25px
+      font-size: 16px
+      font-weight: 500
+
+  &__center
+    margin: 40px 20px
+
+  &__bottom
+    display: flex
+    border-top: 1px solid $gray-accent
+
+    a
+      text-transform: none
+
+  &__right-group
+    margin-left: auto
+
+    label
+      margin: 0 10px
+
+    a
+      display: inline-block
+      margin-top: 15px
+      height: 40px

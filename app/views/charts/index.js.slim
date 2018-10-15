@@ -1,0 +1,24 @@
+- if params[:period]
+  - if params[:page]
+    | $('#shared_results').append("#{ j render partial: 'beats/track', collection: @tracks }");
+
+    - if @tracks.last_page?
+      | $('#chartsBeats').find('nav').hide();
+    - else
+      | $('#chartsBeats').find('nav').replaceWith("#{ j paginate @tracks, remote: true }");
+
+  - else
+    | $('#all-li-charts-pariod').html("#{ j render partial: 'chart_tabs' }");
+    | $('#info-period').html("#{ j render partial: 'info_period' }");
+    | $('#shared_results').html("#{ j render partial: 'beats/track', collection: @tracks }");
+    | $('#chartsBeats').find('nav').replaceWith("#{ j paginate @tracks, remote: true }");
+
+- else
+  | $('#shared_results').html("#{ j render partial: 'beats/track', collection: @tracks }");
+
+  - if @tracks.last_page?
+    | $('#chartsBeats').find('nav').hide();
+  - else
+    | $('#chartsBeats').find('nav').replaceWith("#{ j paginate @tracks, remote: true }");
+
+| wait_and_run(waves.waveform_proc(), 500);

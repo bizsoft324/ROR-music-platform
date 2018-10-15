@@ -1,0 +1,21 @@
+.profile
+  .profile__top
+    h1 Profile
+    span.profile__help.is-hidden-mobile To edit something just click on it.
+    .profile__tab.profile__tab--left
+      input id='personal' type='radio' name='profile-group' checked=''
+      label for='personal' Personal
+      = render 'personal'
+    .profile__tab
+      input id='settings' type='radio' name='profile-group'
+      label for='settings' Settings
+      = render 'settings'
+    / .profile__tab
+    /   input id='social' type='radio' name='profile-group'
+    /   label for='social' Social
+    /   = render 'social'
+
+
+  figure.image#close-profile-modal
+    span.icon
+      .icon__nav-icon.icon__nav-icon__close

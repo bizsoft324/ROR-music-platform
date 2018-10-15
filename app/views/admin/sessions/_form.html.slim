@@ -1,0 +1,11 @@
+.share-modal
+  span.top SIGN IN FOR ADMIN
+= simple_form_for @admin_session, url: admin_sessions_path, html: { class: 'form'} do |f|
+  = f.label :email_or_username
+  br
+  p = f.input :email_or_username, label: false
+  = f.label :password
+  br
+  p = f.input :password, label: false
+  br
+  p = f.button :button, 'Login'

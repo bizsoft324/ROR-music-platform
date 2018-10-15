@@ -1,0 +1,24 @@
+| if($(window).width() > 480) {
+|   $.lazybox("#{j(render partial: 'profile_form', locals: {user: current_user, avatar_data: nil})}", {esc: false, close: false, modal: true, klass: 'twitter-modal'});
+| $("#inputFile").change(function () { readURL(this); });
+| }
+| else {
+|   $("#mobile-sign-up-form").remove();
+/
+/ Create elements to wrap the form partial and append to body
+/
+|   var mobileFormWrapper = document.createElement('div');
+|   var twitterFormWrapper = document.createElement('div');
+|   mobileFormWrapper.setAttribute('id', 'mobile-sign-up-form');
+|   mobileFormWrapper.setAttribute('class', 'mobile-sign-up-wrapper');
+|   twitterFormWrapper.setAttribute('id', 'twitter-auth-form');
+|   twitterFormWrapper.setAttribute('class', 'twitter-auth-form-wrapper');
+|   $('body, html').addClass('has-overflow-hidden');
+|   $("#sign-in-item").hide();
+|   $("#toggle-sign-up").show();
+|   $("#toggle-user-menu").hide();
+|   $(mobileFormWrapper).append(twitterFormWrapper);
+|   $("body").prepend(mobileFormWrapper);
+|   $("#twitter-auth-form").prepend("#{j(render partial: 'profile_form', locals: {user: current_user, avatar_data: nil})}");
+|   $("#inputFile").change(function () { readURL(this); });
+| }

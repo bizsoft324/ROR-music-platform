@@ -1,0 +1,7 @@
+.popup.popup--info
+  .popup__avatar
+    span.verified-icon
+      = image_tag 'verified-crown.svg' if track.user.verified?
+    = cl_image_tag track.user.avatar_url(:thumb), fetch_format: :auto, class: 'avatar'
+    span.popup__name = track.username
+    span.popup__location #{track.user.city}, #{track.user.country}

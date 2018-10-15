@@ -1,0 +1,34 @@
+.profile__content
+  = simple_form_for current_user, html: { class: 'profile__form' }, defaults: { input_html: { class: 'input' } }, url: profile_path, method: :put, multipart: true, remote: true do |f|
+    .profile__avatar
+      = f.label :avatar, for: 'inputFile' do
+        = image_tag current_user.avatar.url(:medium), id: 'image_upload_preview'
+      = f.file_field :avatar, class: 'hidden', id: 'inputFile'
+      .profile__edit
+        label for='inputFile'
+          span Edit avatar
+
+    .profile__info
+      .profile__name
+        span contenteditable='true' data-attr='first_name' placeholder="First name" = current_user.first_name
+        span contenteditable='true' data-attr='last_name' placeholder="Last name" id='lname' = current_user.last_name
+        i.uk-icon-pencil data-label='first_name'
+      = f.hidden_field :first_name
+      = f.hidden_field :last_name
+      .profile__location
+        span contenteditable='true' data-attr='city' placeholder='City' = current_user.city
+        span ,
+        .profile__pop
+          label for='country'
+            span.profile__select data-select='true' =< current_user.country
+          input type='checkbox' id='country'
+          = f.input :country, priority: ['United States'], input_html: { size: 5 }, label: false
+          i.uk-icon-pencil data-label='city'
+      = f.hidden_field :city
+      = f.error :city
+      = render partial: 'shared/error_messages', locals: { object: current_user }
+      .profile__about
+        span
+          |About
+        = f.text_area :description
+        = f.button :submit, 'SAVE', class: 'profile__save'

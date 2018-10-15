@@ -1,0 +1,20 @@
+ul.top-panel__menu.beats-menu#critiques_items
+  li.current
+    = link_to t('.received'), critiques_path(type: 'received'), remote: true
+  li
+    = link_to t('.given'), critiques_path(type: 'given'), remote: true
+
+section.critique-wrap.scroll-right
+  .beat-tab-content.critiques-list
+    .list-container.inner-content
+      .container#after-slider
+        .columns.is-mobile.header
+          .column.is-5
+            .critique-counter.counter#critiques_count #{@received_comments.count} received
+          .column.is-7.sort-filter.select-input data-selectinput='true'
+            = form_tag critiques_path, method: :get do
+              = select_tag 'sort', options_for_select(sort_params, sort_params[0][1]), id: 'critiques_sort'
+
+        #critiques_list
+          - cache [@received_comments, 'list', current_user] do
+            = render partial: 'critiques/critique', locals: { comments: @received_comments }

@@ -1,0 +1,15 @@
+#desktop-charts
+  .top-panel#charts_top_panel
+    span.top-panel__title Charts
+    ul.top-panel__menu.beats-menu#charts_period
+      #all-li-charts-pariod
+        = render partial: 'chart_tabs'
+
+  #chartsBeats.scroll-right
+    section.inner-content
+      .container
+        #info-period.is-clearfix
+          = render partial: 'info_period'
+        #shared_results
+          = render partial: 'beats/track', collection: @tracks, cached: true
+        = paginate @tracks, remote: true

@@ -1,0 +1,19 @@
+.beat-menu__details id = "critique_#{track.id}"
+  span.hide id = "detail_#{track.id}"
+    = link_to 'More By This Artist', artist_track_list_path(track.user_id)
+    = link_to 'SEE FULL BEAT THREAD', critique_path(track), remote: true
+  = form_for :comment, html: { id: "form_#{track.id}" } do |f|
+    = hidden_field_tag :track_id, track.id
+    = f.text_area :body, placeholder: true, class: 'textarea', data: { live: track.id }
+    span.beat-menu__error id="err_#{track.id}"
+  span.beat-menu__counter data-count=track.id
+    |0
+  - if authenticated?
+    .beat-menu__button
+      span onclick=("send_comment(#{track.id});return false") id="send_#{track.id}" Send
+  - else
+    label for="pop_#{track.id}"
+      .beat-menu__button
+        span id="send_btn_#{track.id}" Send
+    input.beat__open-popup type='checkbox' id="pop_#{track.id}"
+    = render 'beats/alert_popup'

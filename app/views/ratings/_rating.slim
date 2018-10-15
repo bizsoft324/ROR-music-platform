@@ -1,0 +1,37 @@
+ul.ratings_listing
+  - if ratings.present?
+    - ratings.each do |rating|
+      - cache [rating,rating.track.image_url(:thumb)] do
+        li.rating-item
+          .columns.is-gapless
+            .column.is-8.critique-box
+              .is-clearfix
+                .critique-thumb.is-pulled-left
+                  = cl_image_tag rating.track.image_url(:thumb), fetch_format: :auto, class: 'avatar'
+                .critique-detail
+                  .columns
+                    .column.is-6
+                      - if rating.status == 'like'
+                        - rating_type = 'fire'
+                      - if rating.status == 'indifferent'
+                        - rating_type = 'sad'
+                      - if rating.status == 'dislike'
+                        - rating_type = 'unlike'
+
+                      = inline_svg "range-#{rating_type}.svg", class: rating.status
+                      .ratings-text
+                        strong.song-name  #{rating.track.title}
+                        .rating-of  by
+                        - user = User.find(rating.user_id)
+                        strong.song-name  #{user == current_user ? 'You' : user.username}
+
+                    .column.is-6.right-nav
+                      = link_to 'SEE FULL BEAT THREAD', critique_path(rating.track.id), remote: true
+                      ul
+                        li
+                          span.critique-time  #{time_ago_in_words(rating.created_at).gsub('about','')} ago
+  - else
+    li
+      .columns.is-gapless
+        .column.is-8.critique-box
+          = 'No Ratings'

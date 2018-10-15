@@ -1,0 +1,39 @@
+.container.beats-filter#filter-menu
+  = form_tag '/beats', id: 'beatsFilter', class: "columns" do
+    .column.has-text-centered
+      h2.filter-title Filters
+      ul.filter-items.has-text-centered
+        li
+          span All beats
+          input#all_beats.css-checkbox.lrg.filter-in.checkbox type="checkbox" name='filters[all_beats]'
+          label.css-label.lrg.klaus for="all_beats" name="checkbox1_lbl"
+        li
+          span Charted
+
+          = check_box_tag 'filters[charted]', 1, false, class: 'filter-in css-checkbox lrg charted-checkbox checkbox', id: 'charted'
+          label.css-label.lrg.klaus for="charted"
+    .column.has-text-centered
+      h2.filter-title RATING
+      ul.rating-items.is-inline#rating-check
+        li
+          = image_tag 'range-fire.svg'
+          input#rating1.css-checkbox.lrg.filter-in.checkbox type="checkbox" name='filters[ratings][]' value="like"
+          label.css-label.lrg.klaus for="rating1"
+        li
+          = image_tag 'range-sad.svg'
+          input#rating2.css-checkbox.lrg.filter-in.checkbox type="checkbox" name='filters[ratings][]' value="indifference"
+          label.css-label.lrg.klaus for="rating2"
+        li
+          = image_tag 'range-unlike.svg'
+          input#rating3.css-checkbox.lrg.filter-in.checkbox type="checkbox" name='filters[ratings][]' value="dislike"
+          label.css-label.lrg.klaus for="rating3"
+    .column.has-text-centered
+      - @genres.each do |genre|
+        h2.filter-title = genre.name
+        ul.filter-items.has-text-centered
+          - genre.subgenres.each do |subgenre|
+            li
+              span = subgenre.name
+              = check_box_tag 'filters[subgenres][]', subgenre.id, false, class: 'filter-in checkbox', id: "check_sub_genre#{subgenre.id}"
+              label for="check_sub_genre#{subgenre.id}"
+    .button.is-primary.is-block Apply filter

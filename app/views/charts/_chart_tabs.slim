@@ -1,0 +1,5 @@
+- cache ['chart_tabs', params[:period]] do
+	span
+	- Track::ORDER_SCOPES.each do |order|
+	  li class="#{'current' if order == params[:period] || (!params[:period] && 'by_week_chart' == order)}"
+	    = link_to I18n.t(order, scope: 'charts.period'), charts_path(period: order), remote: true

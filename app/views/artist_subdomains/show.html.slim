@@ -1,0 +1,14 @@
+.top-panel
+  span.top-panel__title = @artist.artist_info
+section.inner-content.track-filter.scroll-right
+  .container
+    .columns.header
+      .column.is-6.is-12-mobile.is-gapless.sort-filter.select-input.information data-selectinput='true'
+        .counter
+          = t('count_beats', count: @artist.tracks.count)
+        - if @artist.description.present?
+          .biography
+            span = @artist.description
+        = select_tag :order, options_for_select([['Newest - Oldest', 'desc'], ['Oldest - Newest', 'asc']], 'desc'), id: 'tracks_order'
+    #artist_tracklist_results
+      = render partial: 'beats/track', collection: @artist_tracks

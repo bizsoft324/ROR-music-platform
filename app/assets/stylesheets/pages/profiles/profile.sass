@@ -1,0 +1,323 @@
+.profile
+  display: block
+  width: 80vw
+  height: 90vh
+  background: $white
+
+  i
+    cursor: pointer
+
+  &__modal
+    padding: 0 !important
+
+    #lazy_close
+      display: none
+
+  &__form
+    display: flex
+
+    &--social
+      height: 492px
+      position: static
+
+  &__top
+    display: flex
+
+    h1
+      text-transform: uppercase
+      font-size: 14px
+      margin: 0 30px
+      line-height: 65px
+      color: $darktext
+      letter-spacing: 1.9px
+
+  &__help
+    line-height: 65px
+    font-size: 12px
+    color: $lighttext
+
+  &__content
+    display: none
+    width: 100%
+    height: 521px
+    position: absolute
+    background: $white
+    left: 0
+    top: 65px
+    border-top: 1px solid $gray-accent
+
+  &__social
+    margin: 3%
+
+    input[type='text']
+      margin: 10px
+      padding-bottom: 10px
+      border-bottom: 1px solid $darktext
+
+    span
+      display: inline-block
+      padding-top: 15px
+      text-align: center
+      width: 60px
+      height: 60px
+      margin-right: 1%
+      border-radius: 50%
+      color: $white
+      border: $slim-border solid $lighttext
+
+    span.twitter
+      background: $twitter
+      border: none
+
+    span.facebook
+      background: $facebook
+      border: none
+
+    span.google
+      background: $google
+      border: none
+
+    span.tumblr
+      background: $tumblr
+      border: none
+
+    span.soundcloud
+      background: $soundcloud
+      border: none
+
+    img
+      margin: -10px 75%
+
+    svg
+      width: 25px
+      fill: $primary
+      margin: -10px 63%
+
+    a
+      display: inline-block
+      width: 4%
+
+    &--hidden
+      display: none
+
+  &__link
+    width: 55%
+
+    &--name
+      width: 25%
+
+  &__avatar
+    padding: 40px 60px
+
+    img
+      width: 240px
+      height: 240px
+      border-radius: 50%
+
+  &__settings
+    display: flex
+    justify-content: space-around
+    margin-top: 5%
+
+  &__item
+    width: 40%
+    display: inline-block
+
+    input
+      margin: 10px 0
+
+    input[type='submit']
+      position: relative
+      margin: 0
+      float: right
+
+  &__info
+    display: inline-block
+    width: 71%
+    padding: 0 15px
+
+    label
+      display: none
+
+    span
+      display: block
+
+    i
+      color: $primary
+      position: absolute
+      bottom: 0
+      font-size: 21px
+      text-align: center
+      vertical-align: top
+
+  &__name
+    margin-top: 55px
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    position: relative
+
+    span
+      display: inline-block
+      font-size: 52px
+      font-weight: 100
+      letter-spacing: -2px
+      color: $darktext
+
+      &#lname
+        margin-left: 1rem
+
+    i
+      margin: 22px 20px
+
+  &__location
+    white-space: nowrap
+    text-overflow: ellipsis
+    position: relative
+
+    span
+      display: inline-block
+      color: $darktext
+
+    i
+      margin: 7px 20px
+
+    .input
+      position: absolute
+      z-index: 2
+      display: inline-block
+      border: none
+      padding: 0
+      width: 350px
+      height: 100px
+      // opacity: 0
+
+    select
+      height: 100px
+      width: 350px
+
+
+
+  &__select
+    cursor: pointer
+
+  &__username
+    color: $lighttext
+    margin: 10px 0
+    font-weight: 300
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+    position: relative
+
+    i
+      margin: 0px 20px
+
+    span
+      display: inline-block
+
+    &--green
+      color: $primary
+      font-weight: 400
+
+  &__about
+    margin-top: 100px
+
+    span
+      text-transform: uppercase
+      letter-spacing: 2px
+      margin-bottom: 25px
+
+    textarea
+      display: block
+      resize: none
+      border: $slim-border solid $lighttext
+      width: 95%
+      height: 121px
+      padding: 10px 20px
+      text-align: justify
+      font-size: 14px
+
+
+  &__save
+    display: inline-block
+    float: right
+    background: $primary
+    margin: 20px 2.8rem 0
+    letter-spacing: 1.2px
+    color: $white
+    font-size: 14px
+    width: 79px
+    height: 47px
+
+    &--social
+      position: absolute
+      bottom: -25px
+      right: 15px
+
+  &__edit
+    display: block
+    margin-top: 20px
+    background: $primary
+    color: $white
+    text-align: center
+    text-transform: uppercase
+
+    span
+      color: $white
+      font-size: 14px
+      line-height: 47px
+      padding: 15px 30px
+
+  &__tab
+    margin: 17px 25px
+
+    label
+      padding-bottom: 29px !important
+      text-transform: uppercase
+      color: $primary
+      font-size: 14px
+      letter-spacing: 1.9px
+
+    [type="radio"]
+      display: none
+
+    [type="radio"]:checked ~ .profile__content
+      display: inline-block
+
+    [type="radio"]:checked ~ label
+      color: $lighttext
+      border-bottom: solid 3px $primary
+
+    &--left
+      margin-left: auto
+
+  [contenteditable]
+    cursor: auto
+
+  &__pop
+    display: inline-block
+
+    .input
+      visibility: hidden !important
+
+      select
+        transition: visibility 0.2s ease-in-out
+
+    label
+      margin-left: 6px
+      display: inline-block
+      padding: 0 !important
+      font-size: 100%
+
+    input[type='checkbox']
+      width: 0
+      opacity: 0
+
+    input[type='checkbox']:focus + .input
+      select
+        visibility: visible !important
+        transition: all 1s ease-in-out
+
+  span:focus
+    border-bottom: 1px solid $primary

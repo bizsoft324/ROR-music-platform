@@ -1,0 +1,17 @@
+doctype html
+html
+  = render 'layouts/head'
+  body class="#{body_class}"
+    .container.is-fluid
+      = render 'shared/messages'
+
+      - if current_user&.invalid?
+        = link_to '', profile_session_path(provider: current_user.provider), remote: true, id: 'profile-link'
+
+      .header.bth-header
+        = render 'shared/nav'
+
+      = yield
+
+    = include_gon
+    = insert_paloma_hook

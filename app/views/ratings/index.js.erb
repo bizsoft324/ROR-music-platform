@@ -1,0 +1,23 @@
+var list = $('#ratings_list');
+var count = $('#ratings_count');
+list.html('');
+
+<% if params[:type] == 'given' %>
+count.text(" <%= @given_ratings.count %> RATINGS GIVEN");
+
+<% if browser.device.mobile? %>
+list.append("<%= j(render partial: 'rating_mobile', locals: { ratings: @given_ratings, type: 'given' }) %>");
+<% else %>
+list.append("<%= j(render partial: 'rating', locals: { ratings: @given_ratings, type: 'given'}) %>");
+<% end %>
+
+<% else %>
+count.text(" <%= @received_ratings.count %> RATINGS RECEIVED");
+
+<% if browser.device.mobile? %>
+list.append("<%= j(render partial: 'rating_mobile', locals: { ratings: @received_ratings, type: 'received' }) %>");
+<% else %>
+list.append("<%= j(render partial: 'rating', locals: { ratings: @received_ratings, type: 'received' }) %>");
+<% end %>
+
+<% end %>

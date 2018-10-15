@@ -1,0 +1,28 @@
+// allows for override of @color
+.define-css-loader-color-if-not-defined() {
+    @css-loader-color: rgba(255,255,255,0.5);
+} .define-css-loader-color-if-not-defined();
+
+@circle-width: 8px;
+@loader-width: @circle-width*2;
+@duration: 2.5s;
+
+.loader {
+  top: 50%;
+  left: 50%;
+  margin-left: -@loader-width/2;
+  margin-top: -@loader-width/2;
+  position: absolute;
+  margin: 0 auto;
+  display: block;
+  width: @loader-width;
+  height: @loader-width;
+}
+
+.dot {
+  position: absolute;
+  display: block;
+  border-radius: @circle-width/2;
+  width: @circle-width;
+  height: @circle-width;
+}

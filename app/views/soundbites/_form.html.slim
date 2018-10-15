@@ -1,0 +1,14 @@
+= simple_form_for(@soundbite) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :data_start
+    = f.input :data_end
+    = f.input :comment_id
+    = f.input :data_url
+    = f.input :data_id
+    = f.input :data_plays
+    = f.input :title
+
+  .form-actions
+    = f.button :submit

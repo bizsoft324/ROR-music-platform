@@ -1,0 +1,151 @@
+en:
+  thredded:
+    topics:
+      form:
+        create_btn: Post
+      follow: follow this topic
+  links:
+    sign_in: SIGN IN
+    sign_up: CREATE AN ACCOUNT
+    upload: UPLOAD
+    here: here
+  soundcloud_page:
+    soungs_in_soundcloud:
+      zero: Not found songs in soundcloud
+      one: One song in soundcloud
+      other: '%{count} songs in soundcloud'
+    check_to_import: Check to import
+    import_selected_beats: import selected beats
+    next_page: Next page
+    first_page: First page
+  count_beats:
+    zero: NO BEATS
+    one: ONE BEAT
+    other: '%{count} BEATS'
+  count_critiques:
+    one: '%{count} CRITIQUE'
+    other: '%{count} CRITIQUES'
+  charts:
+    info_period:
+      by_week_charts: Week of %{date}
+      by_month_charts: Month of %{date}
+      by_all_time_charts: All Time
+      by_today_charts: '%{date}'
+      by_day_charts: '%{date}'
+    period:
+      by_week_charts: This Week
+      by_month_charts: This Month
+      by_all_time_charts: All Time
+      by_today_charts: Today
+      by_day_charts: Today
+    charted_time:
+      by_today_charts: today
+      by_day_charts: today
+      by_week_charts: this week
+      by_month_charts: this month
+      by_all_time_charts: all
+  beat_deficit: You need to leave a critique for other tracks
+  critiques:
+    index:
+      received: CRITIQUES RECEIVED
+      given: CRITIQUES GIVEN
+  comments:
+    create:
+      comment_left: "User: '%{name}' just left a comment on '%{track_title}' by '%{track_user}' '%{body}'"
+  beats:
+    critique:
+      context: Your first critique on a beat must be at least 1 character
+  ratings:
+    create_or_update:
+      rating_left: "User: '%{username}' left a Rating: '%{star}' on '%{track_title}'"
+  sessions:
+    create:
+      signed_in: "User: '%{username}' just signed in!"
+    destroy:
+      signed_out: "User: '%{username}' is signing out!"
+      success: Logged out!
+  soundbites:
+    create:
+      success: Soundbite was successfully created.
+    update:
+      success: Soundbite was successfully updated.
+    destroy:
+      success: Soundbite was successfully destroyed.
+  soundcloud_tracks:
+    create:
+      success: Tracks have been imported
+      check: Check to import
+  tracks:
+    create:
+      track_uploaded: "User: '%{username}' just uploaded a track. Title: '%{title}'"
+      success: Track created!
+    update:
+      success: Track was successfully updated.
+    destroy:
+      success: Track was successfully destroyed.
+    uploading_content:
+      contact_me: Allow people to contact me about this beat.
+      has_vocals: This track has vocals
+      has_samples: This track has samples
+      downloadable: Downloadable
+      choose_audio: CHOOSE AUDIO FILE TO UPLOAD
+      image_required: Image required
+      title_required: Beat title required
+      tags_required: Beat tags required
+      description_required: Track description required
+      subgenre_required: Subgenre must be selected
+  waitlists:
+    create:
+      fail: Looks like we already have your email.
+    update:
+      error: An error has occurred.
+  shared:
+    share_form:
+      share_social: HOW WOULD YOU LIKE TO SHARE
+      title: 'SHARE "%{title}"'
+  user_mailer:
+    critique_notification:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      our_hope: Hope this critique takes you one step closer to producing fire!
+      team: '- Beat Thread team'
+      full_beat: See the full beat thread.
+    charted:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      congratulations: 'Congratulations, %{name}. Your track hit the charts!'
+      charts: Charts
+      our_hope: Keep producing that fire!!
+      team: '- BeatThread team'
+    charts_update:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      charts_update: Here is your daily charts update!
+      charts: Charts
+      our_hope: Hope this critique takes you one step closer to producing fire!
+      team: '- BeatThread team'
+    top_ten:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      congratulations: 'Congratulations, %{name}, your track made the top 10!'
+      charts: Charts
+      our_hope: Keep producing that fire!!
+      team: '- BeatThread team'
+    confirmation:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      link_confirm_email: 'Click the link below or paste it into your browser to confirm your email address:'
+      team: '- BeatThread team'
+      thanks: Thanks for signing up for BeatThread!
+    reset_password:
+      header_title: Real Feedback. More Placements.
+      content_title: 'Hey, %{name}'
+      link_reset_password: 'Click the link below or paste it into your browser to reset your password:'
+      team: '- BeatThread team'
+  notice:
+    must_login: 'You must login or register, first! :)'
+
+  helpers:
+    placeholder:
+      comment:
+        body: Write your critique here

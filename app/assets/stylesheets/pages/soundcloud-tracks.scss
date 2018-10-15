@@ -1,0 +1,37 @@
+.soundcloud-tracks-list {
+  background-color: $white;
+  color: $dark-gray;
+  font-family: "Yantramanav", sans-serif;
+  letter-spacing: 1.5px;
+  line-height: normal;
+  text-transform: uppercase;
+  padding-bottom: 47px;
+
+  .title {
+    background-color: $soundcloud;
+    text-align: center;
+    padding: 5px;
+  }
+
+  .subtitle {
+    margin: 30px 4%;
+    font-size: 14px;
+  }
+
+  .soundcloud-iframe iframe { padding-left: 5%; }
+  .button-left { float: left; }
+
+  .download-checkbox {
+    margin-left: -10px;
+
+   .checkbox-default {
+      margin: 65px auto;
+      width: 21px;
+    }
+  }
+
+  iframe {
+    width: 100%;
+    height: 166px;
+  }
+}

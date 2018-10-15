@@ -1,0 +1,6 @@
+- if browser.device.mobile?
+	#mobile-charts
+	  = render partial: 'mobile_charts'
+- else
+	#desktop-charts
+	  = render partial: 'charts'

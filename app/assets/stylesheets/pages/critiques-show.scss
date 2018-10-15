@@ -1,0 +1,231 @@
+.background-track-image {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  filter: blur(6px);
+}
+.artist-bg-img{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  width: 100%;
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.center-container{
+  max-width: 775px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+
+  .send-btn {
+    position: absolute;
+    right: 0;
+    background-color: $primary;
+    min-height: 50px;
+    line-height: 30px;
+    font-size: 16px;
+  }
+}
+
+.critique-filter {
+  background-color: $lightgray;
+  padding: 1%;
+  .critique-counter {
+    font-size: 16px;
+    letter-spacing: 2.7px;
+    color: $darktext;
+    line-height: 5vh;
+  }
+  .sort-filter {
+    .uk-button {
+      background-color: $white;
+      color: #8A7D66;
+      width: 220px;
+      padding: 8px 15px;
+      font-size: 14px;
+      span {
+        float: left;
+      }
+      i {
+        float: right;
+        color: #2bb673;
+        margin-top: 5px;
+        font-size: 18px;
+      }
+    }
+  }
+}
+.critique-commented-wrap {
+  margin: 1px 0 0;
+  padding: 0;
+  overflow-y: scroll;
+
+  .media {
+    padding: 30px 10px;
+    margin: 5px 0;
+    .media-left {
+      position: relative;
+      h5 {
+        position: absolute;
+        left: 3px;
+        top: -15px;
+        z-index: 1;
+      }
+    }
+    .media-content { max-width: 63%; }
+  }
+
+  max-height: 37vh;
+}
+
+.critique-html {
+  position: relative;
+  height: 100%;
+  z-index: 10;
+  background: white;
+}
+
+@keyframes flyTop{
+  0%{
+    transform:translateY(100%)
+  }
+  100%{
+    transform:translateY(0%)
+  }
+}
+
+@-webkit-keyframes slideUp{
+  0%{
+    position: relative;
+    -webkit-transform:translateY(100%)
+  }
+  100%{
+    position: relative;
+    -webkit-transform:translateY(0%)
+  }
+}
+@-moz-keyframes slideUp{
+  0%{
+
+    -moz-transform:translateY(100%)
+  }
+  100%{
+    position: relative;
+    -moz-transform:translateY(0%)
+  }
+}
+@keyframes slideUp{
+  0%{
+    position: relative;
+    transform:translateY(100%)
+  }
+  100%{
+    position: relative;
+    transform:translateY(0%)
+  }
+}
+@media screen and (max-width:1199px) {
+  .critique-wrap {
+    .list-container {
+      .critique-box {
+        .critique-detail {
+          width: 89%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:979px) {
+  .critique-wrap {
+    .list-container {
+      .critique-listing {
+        > li {
+          padding: 20px 20px 30px;
+        }
+        .critique-box {
+          .critique-detail {
+            width: 86%;
+          }
+        }
+      }
+      .critique-right {
+        .critique-of {
+          margin-top: -20px;
+          margin-left: 20px;
+          padding: 20px 20px 0;
+        }
+        .song-name, a {
+          margin-left: 20px;
+          padding: 5px 20px;
+        }
+        a {
+          margin-top: 15px;
+          font-size: 13px;
+          letter-spacing: 2px;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:769px) {
+  .critique-wrap {
+    .list-container {
+      .critique-right {
+        .critique-of {
+          border-left: 0;
+          margin-top: 0;
+          margin-left: 0;
+          padding: 20px 0 0;
+        }
+        .song-name, a {
+          margin-left: 0;
+          padding: 5px 0;
+        }
+        a {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+  .center-container{
+    padding: 0 10px
+  }
+}
+@media screen and (max-width:599px) {
+  .critique-wrap {
+    .list-container {
+      .critique-listing {
+        .critique-box {
+          .critique-detail {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width:479px) {
+  .critique-filter .sort-filter .uk-button {
+    width: 130px;
+    padding: 4px 11px;
+  }
+
+  .critique-commented-wrap li .critique-box .critique-detail {
+    width: 100%;
+  }
+  .critique-commented-wrap li .critique-box .critique-detail .right-nav{
+    float: left;
+    width: 100%;
+  }
+  .critique-commented-wrap li .critique-box .critique-detail .right-nav > ul > li:first-child{
+    float: left;
+  }
+  .critique-commented-wrap li .critique-box .critique-detail .right-nav > ul > li:last-child{
+    float: right;
+  }
+  .critique-commented-wrap li .critique-box .critique-detail .right-nav .uk-button-dropdown.uk-open > .uk-dropdown{
+    right: -20px;
+  }
+}

@@ -1,0 +1,143 @@
+// Variables
+@import 'variables/*';
+
+// Vendor Assets
+@import 'jquery-ui';
+@import 'jquery.atwho';
+@import 'jquery.fileupload';
+@import 'jquery.fileupload-ui';
+@import 'sanitize-css';
+@import 'bulma';
+@import 'colors';
+@import 'links';
+@import 'ninja-slider';
+@import 'prism';
+@import 'toastr';
+@import 'font-awesome';
+
+@import 'lazybox';
+@import 'uikit';
+@import 'uikit-components';
+@import 'dataTables/jquery.dataTables';
+@import 'bootstrap-slider';
+@import 'bootstrap/bootstrap-rails-tooltip';
+@import 'bootstrap/bootstrap-rails-popover';
+
+// In-house Styles
+@import 'pages/mobile-slider';
+@import 'mobile';
+
+html,body, button, input, select, textarea, h1, h2, h3, h4, h5, h6 {
+  font-family: 'Yantramanav', sans-serif;
+}
+*{
+  outline: none;
+}
+
+@import 'fonts';
+@import 'base/overrides';
+@import 'base/components';
+@import 'base/new';
+@import 'base/spinner_loader';
+@import 'base/checkbox_default';
+@import 'base/selectize';
+@import 'components/container';
+@import 'components/select';
+@import 'components/form';
+@import 'components/mobile_slider';
+@import 'components/mobile_beats_filter';
+@import 'components/mobile_beat_card';
+@import 'components/mobile_sign_up_form';
+@import 'components/mobile_twitter_auth_form';
+@import 'components/mobile_track_upload';
+@import 'components/mobile_track_player';
+@import 'components/icon';
+@import 'components/button';
+@import 'components/turbolinks';
+@import 'pages/critique';
+@import 'pages/critiques/comment_box';
+@import 'pages/critiques/artist_info';
+@import 'pages/beats';
+@import 'pages/beats-index';
+@import 'pages/tracks';
+@import 'pages/artists';
+@import 'pages/home';
+@import 'pages/battlegrounds';
+@import 'pages/mobile_charts';
+@import 'pages/waitlists/*';
+@import 'pages/soundcloud-tracks';
+@import 'pages/beats/beats_filter';
+@import 'pages/beats/beats_header';
+@import 'pages/beats/beat_main_right';
+@import 'pages/beats/beat_section';
+@import 'pages/beats/player_popup';
+@import 'pages/tracks/*';
+@import 'pages/profiles/profile';
+@import 'pages/profiles/mobile_profile';
+@import 'pages/artist/artist';
+@import 'pages/battlegrounds/extra';
+@import 'pages/sign_in/sign_in';
+@import 'pages/reset_password/pass';
+@import 'pages/soundbites';
+@import 'partials/*';
+@import 'partials/beats/*';
+@import 'partials/critiques/*';
+@import 'pages/critiques-show';
+@import 'navigation/*';
+@import 'responsive/desktop_nav';
+@import 'responsive/landing/wait_list';
+@import 'responsive/landing/home';
+@import 'responsive/profiles/profile';
+@import 'responsive/waitlists/*';
+@import 'responsive/beats/*';
+@import 'responsive/battlegrounds/*';
+@import 'responsive/partials/beats/*';
+@import 'responsive/charts';
+@import 'custom/checkboxes';
+@import 'customize/variables';
+@import 'customize/checkbox';
+@import 'utility/utility';
+@import 'utility/spacers';
+@import 'state/state';
+@import 'pages/admin/*';
+
+
+@import "thredded";
+@import 'base/thredded-overrides';
+// Media Queries
+@import 'fractionalize';
+
+@-ms-viewport{
+  width: device-width;
+}
+
+.hide { display: none; }
+
+.bold-text {
+  color: black;
+  font-weight: bold;
+  font-size: small;
+}
+
+.critique__modal {
+  overflow-y: overlay;
+  width: 100%;
+  padding: 0 !important;
+
+  #lazy_close {
+   right: 0%;
+   top: 0%;
+ }
+
+  section {  padding: 0; margin: 0;  }
+}
+
+#lazybox.critique__modal {
+  min-height: 100vh;
+  overflow: hidden;
+  border: none;
+}
+
+.pointer {
+  cursor: pointer;
+}

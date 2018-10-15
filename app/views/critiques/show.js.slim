@@ -1,0 +1,6 @@
+- if params[:sort]
+  | $('#critique_comment_list').html("#{j render partial: 'critiques/comment', collection: @comments}");
+- else
+  | $.lazybox( "#{j(render partial: 'show', locals: { track: @track })}", { klass: 'critique__modal' } );
+| window.critiques_id = "wf-#{Digest::MD5.hexdigest(@track.id.to_s)}";
+| toggleCritiqueBox("show");

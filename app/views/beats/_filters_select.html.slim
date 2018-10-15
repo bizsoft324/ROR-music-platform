@@ -1,0 +1,22 @@
+button.beat-select__button data-action-button='filters' type='button' Filters
+ul.beats-filter__panel
+  li
+    span Charted
+    = check_box_tag 'filters[types][is_charted]', true, false,  class: 'filter-in not-all-beats lrg charted-checkbox checkbox', id: 'charted'
+    label for='charted'
+  li
+    span Vocals
+    = check_box_tag 'filters[types][has_vocals]', true, false,  class: 'filter-in not-all-beats lrg vocals-checkbox checkbox', id: 'vocals'
+    label for='vocals'
+  li
+    span Samples
+    = check_box_tag 'filters[types][has_samples]', true, false,  class: 'filter-in not-all-beats lrg samples-checkbox checkbox', id: 'samples'
+    label for='samples'
+  li
+    span Downloadable
+    = check_box_tag 'filters[types][downloadable]', true, false,  class: 'filter-in not-all-beats lrg downloadable-checkbox checkbox', id: 'downloadable'
+    label for='downloadable'
+  li
+    span Contactable
+    = check_box_tag 'filters[types][contactable]', true, false,  class: 'filter-in not-all-beats lrg contactable-checkbox checkbox', id: 'contactable'
+    label for='contactable'

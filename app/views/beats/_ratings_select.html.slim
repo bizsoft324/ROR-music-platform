@@ -1,0 +1,15 @@
+- cache 'ratings' do
+  button.beat-select__button data-action-button='ratings' type='button' Ratings
+  ul.beats-filter__panel.beats-filter__panel--horizontal
+    li
+      = inline_svg 'range-fire.svg'
+      input#like.filter-in.not-all-beats type="checkbox" class='checkbox' name='filters[ratings][]' value='like'
+      label for='like'
+    li
+      = inline_svg 'range-sad.svg'
+      input#indifferent.filter-in.not-all-beats type='checkbox' class='checkbox' name='filters[ratings][]' value='indifferent'
+      label for='indifferent'
+    li
+      = inline_svg 'range-unlike.svg'
+      input#dislike.filter-in.not-all-beats type='checkbox' class='checkbox' name='filters[ratings][]' value='dislike'
+      label for='dislike'

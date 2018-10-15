@@ -1,0 +1,8 @@
+button#sorting_button.beat-select__button data-action-button='sort' type='button' Newest - Oldest
+ul.beats-filter__panel.beats-filter__panel--sorting#sorting_panel
+  li
+    = radio_button_tag 'sort_by', :desc, true, id: 'sort_by_desc'
+    label for='sort_by_desc' Newest - Oldest
+  li
+    = radio_button_tag 'sort_by', :asc, false, id: 'sort_by_asc'
+    label for='sort_by_asc' Oldest - Newest

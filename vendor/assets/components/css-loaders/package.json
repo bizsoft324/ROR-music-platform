@@ -1,0 +1,22 @@
+{
+  "name": "css-loaders",
+  "version": "1.2.0",
+  "description": "A collection of css loaders",
+  "main": "lingon.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/javoire/css-loaders.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/javoire/css-loaders/issues"
+  },
+  "homepage": "https://github.com/javoire/css-loaders",
+  "devDependencies": {
+    "gulp-autoprefixer": "0.0.7",
+    "gulp-less": "~1.2.3",
+    "lingon": "~0.8.2",
+    "lingon-watch": "0.0.1"
+  }
+}

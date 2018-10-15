@@ -1,0 +1,15 @@
+| if($(window).width() > 480) {
+| 	$.lazybox("#{j(render partial: 'show')}", { klass: 'profile__modal' });
+| 	$('form.profile__form--settings').parsley()
+| }
+| else {
+|	var mobileProfileWrapper = document.createElement('div');
+|	var closeModal = document.createElement('div');
+|	mobileProfileWrapper.setAttribute('id', 'mobile-profile-form');
+|	mobileProfileWrapper.setAttribute('class', 'mobile-profile-form');
+|   $("body").prepend(mobileProfileWrapper);
+|	$('#mobile-profile-form').prepend("#{j(render partial: 'show')}");
+|  	$('#close-profile-modal').click(function(){
+|		$('#mobile-profile-form').fadeToggle();
+|	});
+| }

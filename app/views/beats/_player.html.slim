@@ -1,0 +1,41 @@
+#beat_play-btn-1.player data-player='true'
+  .columns.is-gapless
+    .column.is-5
+      .player__play
+        span.player__time 0.05
+        .player__scrub-line
+          .player__scrub-line-progress
+          a href="#"
+            .fill-1
+              i#play-btn-1.play-btn.uk-icon-play
+        span.player__time.player__time--right 3.30
+    .column.is-2
+      .player__artist
+        = image_tag 'chris.png'
+        span Chris Keys
+        span Sour Masch
+    .column.is-5
+      ul.player__list
+        li
+          a href="#"
+            = image_tag 'pre-icon.png'
+        li
+          label for='volume-popup'
+            = image_tag 'volume-icon.png'
+          input.player__open-volume type='checkbox' id='volume-popup'
+          .player__volume
+            #slider-vertical
+        li
+          a href='#'
+            = image_tag 'next-icon.png'
+      ul.top-list
+        li
+          a href='#'
+            = image_tag 'fire.png'
+        li
+          a href='#'
+            = image_tag 'sad.png'
+        li
+          a href='#'
+            = image_tag 'unlike.png'
+      h5.player__title CRITIQUES

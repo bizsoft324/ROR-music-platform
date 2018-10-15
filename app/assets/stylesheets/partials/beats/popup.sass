@@ -1,0 +1,126 @@
+.popup
+
+  text-decoration: none
+  visibility: hidden
+  opacity: 0
+  transition: opacity .6s
+  padding-bottom: 32px
+  position: absolute
+  top: -165px
+  left: 55px
+  width: 85%
+  z-index: 10
+
+  &__body
+    background: white
+    padding-bottom: 25px
+    box-shadow: -7px 7px 44px 0 rgba(0, 0, 0, 0.5)
+
+  &:hover
+    visibility: visible
+    opacity: 1
+
+  &:after
+    content: ''
+    border: solid transparent
+    border-top-color: $white
+    border-width: 15px
+    left: 83%
+    top: 89%
+    position: absolute
+    pointer-events: none
+
+  &--info
+    padding-bottom: 0
+    background: white
+    min-height: 210px
+    width: 200px
+    text-align: center
+    top: -215px
+    box-shadow: -7px 7px 44px 0 rgba(0, 0, 0, 0.5)
+
+    &:after
+      left: 15%
+      top: 100%
+      width: 0
+      height: 0
+      border-left: 10px solid transparent
+      border-right: 10px solid transparent
+      border-top: 20px solid $white
+  a
+    font-size: 15px
+    letter-spacing: 2.2px
+    text-transform: uppercase
+    text-decoration: none
+    text-align: center
+
+  &__create-btn
+    a
+      background: $primary
+      margin: 35px 30px
+      padding: 25px
+      display: block
+      color: white
+
+  &__log-in
+    text-align: center
+
+    a
+      color: $primary
+
+  &__alert
+    border-bottom: 1px solid $gray-accent
+    color: $darktext
+    font-size: 16px
+    padding: 32.5px 0
+    text-align: center
+
+    i
+      color: $red-orange
+      font-size: 30px
+      padding-right: 15px
+      vertical-align: middle
+
+  &__avatar
+    span
+      img
+        display: inline-block
+        position: absolute
+        width: 32px
+        margin: -15% 15%
+
+    img
+      display: block
+      border-radius: 50%
+      width: 100px
+      height: 100px
+      margin: 10% auto 7%
+
+  &__name
+    display: block
+    font-size: 16px
+    font-weight: 600
+    color: $primary
+
+  &__location
+    display: block
+    font-size: 14px
+    color: $darktext
+
+  &.popup__rating
+    visibility: visible
+    opacity: 1
+    position: relative
+    left: inherit
+    top: inherit
+    width: 100%
+    padding: 0
+
+    .popup__body
+      padding: 9px 14px 40px 14px
+
+.popover-content
+  padding: 0
+  width: 276px
+//.popover
+//  margin-top: 20px

@@ -1,0 +1,45 @@
+AllCops:
+  TargetRubyVersion: 2.3
+  Exclude:
+    - 'db/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - 'vendor/**/*'
+    - 'log/**/*'
+    - 'config/**/*'
+    - 'Gemfile'
+    - 'spec/support/**/*'
+    - 'app/datatables/**/*'
+    # TODO Must be big refactor
+    - 'config/initializers/gems/*'
+    - 'app/controllers/comments_controller.rb'
+    - 'app/uploaders/audio_uploader.rb'
+    - 'app/controllers/messages_controller.rb'
+    - 'app/controllers/beats_controller.rb'
+    - 'app/controllers/concerns/beat_filters.rb'
+    - 'app/models/concerns/track_filter.rb'
+    - 'spec/models/track/charted_spec.rb'
+    - 'app/uploaders/image_uploader.rb'
+    - 'app/models/track/charted.rb'
+Metrics/LineLength:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/MutableConstant:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false

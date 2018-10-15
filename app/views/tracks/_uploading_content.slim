@@ -1,0 +1,106 @@
+.beat-uploading-content#beat_uploading_content class="#{'visible' if @track.errors.present? || @track.id}"
+  .uploading-bar
+    .uploading-progress#progressbar Uploading...
+
+  .columns.beat-uploading-content__mobile-content
+    .column.is-5
+      .beat-uploading__left
+        = image_tag @track.image_url(:preview) || '', id: 'image_upload_preview'
+        = f.label :image, for: 'inputFile' do
+          .beat-uploading__browse#file_browse_wrapper
+            span Add Image
+            = f.input_field :image, as: :file, id: 'inputFile', accept: 'image/*', data: { parsley_required_message: t('.image_required') }
+              = f.error :image
+        .temp2
+          = link_to 'Add Gif', '', class: 'temp5-gif'
+      .is-clearfix
+
+      .gif-area.hidden
+        input.input id='gif-search' type='text' placeholder='Search for a GIF'
+          = image_tag 'powered_by_giphy', id: 'giphy-logo'
+          = f.hidden_field :image_remote_url, id: 'hiddenGif'
+        a.button#get_gif_btn
+          i.uk-icon-play
+        = link_to 'cancel', '', id: 'gif_cancel'
+
+      p#fake_image_error.error No image or gif selected
+      - if @track.id
+        .beat-uploading__choose
+          = f.label :audio, for: 'upload-audio' do
+            = t('.choose_audio')
+          = f.input_field :audio, data: { dnd: true }, as: :file, class: 'hidden', id: 'upload-audio', accept: 'audio/mpeg, audio/mp3, audio/ogg, audio/x-aiff, audio/flac, application/octetstream'
+        = f.error :audio
+
+    .column.is-7
+      .beat-uploading-right
+        .beat-title
+          = f.input_field :title, as: :string, data: { parsley_required_message: t('.title_required') }
+          = f.error :title
+        #beat-tags
+          = f.input_field :tag_list, as: :string, placeholder: 'Add Tags', data: { parsley_required_message: t('.tags_required') }
+          = f.error :title
+
+        .columns.is-gapless
+          .column.is-4.beat-section__left
+
+
+            .genre-list
+              p.control
+                span.select
+                  = select_tag 'track[genre_ids][]', options_from_collection_for_select(@genres, :id, :name, @track.genre_ids.first), id: 'genre-select'
+
+              p.control
+                span.select#first-subgenre
+                  = select_tag 'track[subgenre_ids][]', options_from_collection_for_select(@track.subgenres_genre, :id, :name, @track.subgenre_ids[0]), data: { parsley_required_message: t('.subgenre_required') }, prompt: 'Choose Subgenre', class: 'subgenre-select', id: 'select_choose_subgenre', required: true
+
+              p.control
+                span.select#second-subgenre
+                  = select_tag 'track[subgenre_ids][]', options_from_collection_for_select(@track.subgenres_genre, :id, :name, @track.subgenre_ids[1]), prompt: 'Choose Subgenre', class: 'subgenre-select', id: 'select_choose_subgenre'
+
+          .column.is-8.beat-section__right
+            .song_tags
+              p#tag_choices_heading Add tags to submit beats to featured artists and producers, including !llmind's "Feedback Friday" & "Blap or Crap"
+              .columns
+                .column.is-4
+                  = link_to '#FeedbackFriday', '#', class: "hashtag-btn", id: 'add-track-tag', data: { tag_name: 'FeedbackFriday' }
+                .column.is-4
+                  = link_to '#PiaMia', '#', class: "hashtag-btn", id: 'add-track-tag', data: { tag_name: 'PiaMia' }
+                .column.is-4
+                  = link_to '#PushaT', '#', class: "hashtag-btn", id: 'add-track-tag', data: { tag_name: 'PushaT' }
+              .columns
+                .column.is-4
+                  = link_to '#blaporcrap', '#', class: "hashtag-btn", id: 'add-track-tag', data: { tag_name: 'blaporcrap' }
+                .column.is-4
+                  = link_to '#Dave East', '#', class: "hashtag-btn", id: 'add-track-tag', data: { tag_name: 'Dave East' }
+                .column.is-4
+                  = link_to '#DjKhaled', '#', class: 'hashtag-btn', id: 'add-track-tag', data: { tag_name: 'DjKhaled' }
+            .columns.is-gapless#share-list.is-mobile
+              .column.is-2-mobile.is-2-tablet.is-2-desktop
+                .edit-beat__left.chosen data-edit-left='true'
+                  = image_tag 'eye-two.jpg'
+                  span Private
+
+              .column.is-8-mobile.is-8-tablet.is-8-desktop
+                .edit-beat__slider data-edit-slider='true'
+                  = f.input_field :streamable, as: :boolean, class: 'hidden'
+
+              .column.is-2-mobile.is-2-tablet.is-2-desktop
+                .edit-beat__right data-edit-right='true'
+                  = image_tag 'eye-one.jpg'
+                  span Public
+        .columns.is-gapless
+          .column
+            .description#track_upload_description
+              = f.input_field :description, as: :text, class: 'textarea', data: { parsley_required_message: t('.description_required') }
+              = f.error :description
+
+        .columns.is-gapless
+          .column
+
+            .beat-uploading__bottom
+              = f.button :submit, 'finish', class: 'beat-uploading__button beat-uploading__button--finish', data: { disable_with: 'Wait...' }
+              - if @track.id
+                = link_to 'delete', track_path(@track.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'beat-uploading__button'
+                = link_to 'cancel', artist_track_list_path(artist_id: current_user.id), class: 'beat-uploading__button'
+              - else
+                = link_to 'cancel', '#', id: 'close-form', class: 'beat-uploading__button'

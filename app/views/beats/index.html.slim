@@ -1,0 +1,30 @@
+#desktop-beats
+  .columns
+    .column.is-12-desktop.is-12-mobile.is-8-tablet.beat-col-right
+      .columns.is-gapless.beats-header#beats_header
+        .column.is-2
+          h2.beat-col-right__title#beats_header_title All Beats
+
+        .column.is-10
+          = form_tag '/beats', id: 'beats_filter' do
+            .select-list
+              i.uk-icon-search.search-inside
+              .search-filter
+                = text_field_tag 'beats_search', nil, placeholder: 'Search for beats...', class: 'filter-bkg'
+              .beat-select
+                = render 'beats/sorting_select'
+
+      .all-beats-section.beats-header__container.scroll-right data-beat-main-right='true'
+        #spinner.la-ball-spin-fade-rotating.la-dark.la-2x.hide
+          div
+          div
+          div
+          div
+          div
+          div
+          div
+          div
+        #beats-list
+          = render partial: 'beats/track', collection: @tracks
+        = paginate @tracks, remote: true
+  /= render partial: 'player'

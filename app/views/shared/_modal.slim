@@ -1,0 +1,11 @@
+.modal id="#{id}"
+	.modal-background
+	.modal-container
+		.modal-content
+			.button-wrap
+				.modal-box
+					h1.modal-header = title
+					.content
+						= yield
+
+				button.modal-close

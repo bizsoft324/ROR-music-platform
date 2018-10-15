@@ -1,0 +1,9 @@
+.popup
+  .popup__body
+    p.popup__alert
+      i.uk-icon-exclamation-triangle
+      | You must be logged in to do that.
+    .popup__create-btn
+      = link_to 'create account', signup_path, remote: true
+    .popup__log-in
+      = link_to 'log in', signin_path, remote: true

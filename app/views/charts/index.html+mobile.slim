@@ -1,0 +1,9 @@
+#mobile-charts
+  .charts-header-mobile#toggle-chart-menu
+    = t('charts.period.by_today_charts')
+
+  ul.mobile-chart-menu#chart-menu
+    = render partial: 'chart_tabs'
+  #shared_mobile_results
+    = render partial: 'beats/track', collection: @tracks
+  / = render 'beats/player'

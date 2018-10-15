@@ -1,0 +1,50 @@
+sass:
+  .mailer
+    background: #f0f0f0
+    color: #4a4a4a
+
+    &-header
+      background: black
+      padding: 20px
+
+      &__title
+        display: inline-block
+        color: #2bb673
+        margin-top: 30px
+        vertical-align: top
+        text-transform: uppercase
+        float: right
+        letter-spacing: 1.5px
+        font-size: 12px
+
+    &-content
+      padding: 20px
+      font-size: 18px
+
+      &__title
+        margin-top: 21px
+        font-weight: normal
+        font-size: 32px
+
+      &__link
+        background: white
+        color: #2bb673
+        display: block
+        padding: 25px
+        word-wrap: break-word
+
+      &__footer
+        span
+          font-weight: bold
+
+.mailer
+  .mailer-header
+    = email_image_tag('newsletter_logo.png')
+    span.mailer-header__title = t('.header_title')
+  .mailer-content
+    .mailer-content__title = t('.content_title', name: @user.name)
+    p = t('.link_confirm_email')
+    = link_to edit_user_url(token: @confirm_token, id: @user), edit_user_url(token: @confirm_token, id: @user), class: 'mailer-content__link'
+    .mailer-content__footer
+      p = t('.thanks')
+      span = t('.team')

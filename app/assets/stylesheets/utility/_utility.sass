@@ -1,0 +1,65 @@
+// Utility classes for modification
+
+// Buttons
+.button
+  &.is-wide
+    width: 80%
+
+  &.is-block
+    width: 100%
+    font-size: 15px
+    height: 70px
+    border-radius: 0
+    text-transform: uppercase
+    letter-spacing: 2.2px
+    font-weight: bold
+
+  &.is-action
+    border-radius: 0
+    border: 1px solid #979797
+    height: 70px
+    width: 270px
+    background: transparent
+    text-transform: uppercase
+    font-size: 16px
+    font-weight: bold
+
+// Image
+.image
+  &.is-44x44
+    height: 44px
+    width: 44px
+
+  &.is-round
+    border-radius: 50%
+    overflow: hidden
+
+// Lists
+ul, ol
+  &.is-embeded
+    li
+      display: inline-block
+      padding: 10px 15px
+
+      a
+        font-size: 15px
+        color: #767676
+
+  &.is-inline
+    display: inline-block
+    li
+      float: left
+      padding: 10px 20px
+
+
+// Display
+html, body, div
+  &.has-overflow-hidden
+    height: 100%
+    position: relative
+    overflow: hidden
+
+// Capitalize
+p, h1, h2, h3, h4, a
+  &.is-capital
+    text-transform: capitalize

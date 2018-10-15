@@ -1,0 +1,28 @@
+default: &defaults
+  # Your push api key, it is possible to set this dynamically using ERB:
+  # push_api_key: "<%= ENV['APPSIGNAL_PUSH_API_KEY'] %>"
+  push_api_key: "cd6ec4e8-2c67-440a-a224-f7b195158b55"
+
+  # Your app's name
+  name: "BeatThread"
+
+  # Actions that should not be monitored by AppSignal
+  # ignore_actions:
+  #   - ApplicationController#isup
+
+  # See http://docs.appsignal.com/gem-settings/configuration.html for
+  # all configuration options.
+
+# Configuration per environment, leave out an environment or set active
+# to false to not push metrics for that environment.
+development:
+  <<: *defaults
+  active: true
+
+production:
+  <<: *defaults
+  active: true
+
+staging:
+  <<: *defaults
+  active: true

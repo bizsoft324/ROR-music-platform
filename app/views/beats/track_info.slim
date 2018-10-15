@@ -1,0 +1,17 @@
+.result
+  .artist-section
+    = link_to critique_path(@track.id), remote: true do
+      = cl_image_tag @track.image_url(:thumb), fetch_format: :auto, class: 'avatar'
+    span.status PLAYING
+    span
+      = link_to "#{@track.user.username}", artist_track_list_path(@track.user_id)
+    span
+      = link_to "#{@track.title}", critique_path(@track.id), remote: true
+  .rating-section
+    - if authenticated?
+      = render partial: 'beats/ratings', locals: { track: @track }, cached: true
+    - else
+      = render partial: 'beats/ratings', locals: { track: @track }
+  .critique-section
+    / = critique_show_link(@track.id)
+    = link_to 'CRITIQUES', critique_path(@track.id), remote: true

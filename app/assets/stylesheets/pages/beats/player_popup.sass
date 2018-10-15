@@ -1,0 +1,202 @@
+.player
+  background: none repeat scroll 0 0 $white
+  box-shadow: 0 -4px 40px 0 rgba(0, 0, 0, 0.2)
+  padding: 15px 30px
+  position: fixed
+  bottom: 0
+  width: 100%
+  z-index: 9999
+  height: 70px
+
+  .spinner-loader
+    width: 0px !important
+    height: 0px !important
+    padding: 5px !important
+    margin-top: -4px !important
+
+  &__play
+    position: relative
+    
+    &-btn
+      width: 34px
+      height: 34px
+      border-radius: 50%
+      border: none
+      padding-top: 13px
+      padding-bottom: 13px
+      line-height: 8px
+      font-size: 8px
+      color: rgb(255, 255, 255)
+      background: rgb(43, 182, 115)
+      font-weight: bold
+      cursor: pointer
+      position: absolute
+      outline: none
+      visibility: visible
+
+  &__time
+    color: $darktext
+    float: left
+    font-size: 12px
+    letter-spacing: 0.4px
+    padding: 5px 15px 5px 15px
+    position: relative
+    top: 5px
+    width: 60px
+
+    &--duration
+      float: right
+      right: 0
+
+  &__scrub-line
+    background-color: $gray-accent
+    width: 80%
+    margin: 19px auto 0
+
+    .fill-1
+      height: 34.6px
+      left: auto
+      width: 34.6px
+      margin-left: 10%
+
+      i
+        line-height: 34.6px
+
+  &__scrub-line-progress
+    height: 2px
+    background-color: $primary
+    width: 37%
+    margin: 19px 0 0
+
+  &__artist
+    font-size: 14px
+    color: $darktext
+    display: block
+    img
+      float: left
+      width: 40px
+      height: 40px
+      margin-right: 15px
+
+    & > span
+      display: block
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      text-transform: capitalize
+
+      a
+        color: $darktext
+
+        &:hover
+          color: $primary
+
+    span.status
+      display: none
+      text-transform: uppercase
+    &.mobile
+      display: none
+
+
+  &__volume
+    background: none repeat scroll 0 0 $white
+    box-shadow: 0 -6px 20px 0 rgba($black, 0.3)
+    display: none
+    padding: 15px 0px
+    position: absolute
+    bottom: 51px
+    left: -12px
+    width: 65px
+    z-index: 5
+    height: 195px
+
+    &:hover
+      display: block
+
+    #slider-vertical
+      height: 100%
+      position: relative
+
+      .ui-slider-handle
+        border: none !important
+        left: initial !important
+        margin-left: -7px !important
+
+    .ui-slider-vertical
+      height: 100px
+      width: 100%
+      padding: 0px 31.5px
+      background-color: transparent !important
+
+      .ui-slider-range
+        left: initial !important
+        width: 2px !important
+
+      .ui-slider-background
+        height: 100%
+        background: $gray-accent
+    .ui-widget-content
+      background: $gray-accent
+      border: 0 none
+      color: $dark-gray
+
+    .ui-widget-header
+      background: $primary
+
+    .ui-slider-handle
+      background: $primary
+      box-shadow: none
+
+  &__list
+    margin: 7px 0
+    padding: 0px 15px
+    list-style: none
+    display: inline-block
+
+    li
+      position: relative
+      display: inline-block
+      font-size: 14px
+      padding: 0 10px
+      line-height: normal
+      vertical-align: middle
+
+  &__critique
+    color: $primary
+    display: inline
+    letter-spacing: 2px
+    padding: 0 15px
+    font-size: 15px
+
+    &--beat
+      padding: 0
+      letter-spacing: .6px
+
+  .beat__ratings
+    padding: 0 15px
+    border-left: 1px solid $gray-accent
+    border-right: 1px solid $gray-accent
+    position: relative
+    width: auto
+    min-width: 175px
+    .dislike
+      padding-right: 0px
+    span
+      padding-right: 0px
+
+  &__open-volume
+    width: 0
+    height: 0
+    position: absolute
+
+    &:focus ~ .player__volume
+      display: block
+
+  .collapse
+    display: none
+
+body.padding-space .scroll-right
+  padding-bottom: 70px
+
+body.padding-space .comment-box
+  bottom: 70px

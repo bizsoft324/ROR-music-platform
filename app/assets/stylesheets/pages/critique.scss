@@ -1,0 +1,172 @@
+body.critiques {
+  section.light-gray-bg { padding-top: 70px; }
+  .main-nav { border-bottom: 1px solid #2B2B2B; }
+  #after-slider { padding-top: 2rem; }
+}
+
+/* critiques style */
+.critique-header {
+  position: fixed;
+  margin-top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.critique-wrap {
+  margin-top: 165px;
+  .list-container {
+    #after_slider { padding-bottom: 3rem; }
+    .critique-listing {
+      margin: 0;
+      padding: 0;
+      > li {
+        padding: 30px 30px 40px;
+        background-color: $white;
+        margin-bottom: 30px;
+      }
+    }
+    .critique-box {
+      background-color: $lightgray;
+      padding: 20px 20px 30px;
+      .critique-thumb {
+        width: 40px;
+        height: 40px;
+        margin-right: 20px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .critique-detail {
+        width: 100%;
+        .critique-description {
+          margin-bottom: 7px;
+          display: flex;
+          justify-content: space-between;
+        }
+        .critique__user {
+          font-size: 14px;
+          letter-spacing: 0.5px;
+          font-weight: 500;
+          color: $primary;
+          margin: 0;
+        }
+        .critique__menu {
+          > ul {
+            padding-left: 0;
+            margin: 0;
+            > li {
+              display: inline-block;
+              .critique-time {
+                font-size: 14px;
+                letter-spacing: 0.5px;
+                color: $lighttext;
+                font-weight: 500;
+                text-transform: uppercase;
+              }
+            }
+          }
+          .uk-button-dropdown {
+            margin: -2px 0 0;
+            vertical-align: top;
+
+            &.uk-open > .uk-dropdown {
+              padding: 0 15px;
+              margin-top: 0;
+              width: 240px;
+              right: -23px;
+              left: auto;
+              top: -20px;
+              background-color: $white;
+              box-shadow: -4px 5px 16px -5px rgba(0,0,0,0.5);
+              -webkit-box-shadow: -4px 5px 16px -5px rgba(0,0,0,0.5);
+              -moz-box-shadow: -4px 5px 16px -5px rgba(0,0,0,0.5);
+              .uk-nav-dropdown > li > a{
+                font-size: 15px;
+                line-height: 3.3;
+                letter-spacing: 2.2px;
+                color: $primary;
+                text-transform: uppercase;
+              }
+              .uk-nav-dropdown > li > a:hover{
+                background-color: $gray-accent;
+              }
+            }
+            &.uk-open .uk-button{
+              position: relative;
+              z-index: 1021;
+            }
+            .uk-button {
+              background-color: transparent;
+              line-height: 18px;
+              min-height: initial;
+              height: auto;
+              color: $primary;
+              font-size: 24px;
+              margin-left: 20px;
+              i {
+                font-size: 8px;
+                padding: 0 3px;
+              }
+            }
+          }
+        }
+        .critique-comment {
+          overflow-wrap: break-word;
+          color: $darktext;
+          font-size: 20px;
+          margin: 0;
+          text-align: justify;
+        }
+      }
+    }
+    .critique-right {
+      .critique-of {
+        font-size: 16px;
+        color: $darktext;
+        margin-top: -30px;
+        margin-left: 30px;
+        padding: 30px 30px 0;
+        border-left: 1px solid $gray-accent;
+      }
+      .song-name {
+        margin-left: 30px;
+        margin-top: -4px;
+        padding: 0 30px 5px 30px;
+        font-size: 22px;
+        letter-spacing: 0.5px;
+        color: $darktext;
+      }
+      a {
+        margin-left: 30px;
+        display: block;
+        padding: 0 30px;
+        margin-top: 20px;
+        font-size: 15px;
+        letter-spacing: 2.2px;
+        color: $primary;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .critique-wrap {
+    margin-top: 0px;
+
+    .list-container {
+      .critique-box {
+        padding: 10px;
+      }
+      .critique-listing {
+
+        li.critique-item {
+          margin: 20px 10px 30px;
+          padding: 15px 20px 30px 10px;
+        }
+      }
+    }
+  }
+}

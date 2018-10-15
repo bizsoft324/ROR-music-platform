@@ -1,0 +1,6 @@
+| $.lazybox.close();
+| $.lazybox("#{j(render partial: 'confirmation_message')}");
+
+| $('#lazy_overlay').click(function(){
+|   if("#{authenticated?}") window.location = "#{new_track_path}";
+| });

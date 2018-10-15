@@ -1,0 +1,72 @@
+// these overrides pertain to just /forum.
+#thredded--container {
+  margin-top: 100px
+}
+@media screen and (max-width:1199px) {
+  #thredded--container {
+    margin-top: 100px
+  }
+}
+@media screen and (max-width:979px) {
+  #thredded--container {
+    margin-top: 100px
+  }
+}
+@media screen and (max-width:769px) {
+  #thredded--container {
+    margin-top: 10px
+  }
+}
+@media screen and (max-width:599px) {
+  #thredded--container {
+    margin-top: 10px
+  }
+}
+@media screen and (max-width:479px) {
+  #thredded--container {
+    margin-top: 10px
+  }
+}
+
+.thredded--navigation-breadcrumbs {
+  font-size: 18px;
+}
+
+.thredded--button {
+  background: #2bb673;
+  color: #ffffff !important;
+  font-size: 15px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  float: right;
+  height: 45px;
+  padding: 13px 15px;
+  text-decoration: none;
+  margin-top: -30px;
+  cursor: pointer;
+  a:link, a:visited {
+    color: #fff !important;
+  }
+  &:hover {
+    background: #2bb673;
+    color: #ffffff !important;
+  }
+}
+
+.navbar__item .navbar__item .thredded_current span, {
+    color: #ffffff;
+    padding-bottom: 21px;
+    border-bottom: 6px solid #2bb673;
+}
+
+.thredded--form--submit {
+  background: #2bb673 !important;
+  color: #ffffff !important;
+  font-size: 15px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  &:hover {
+    background: #2bb673 !important;
+    color: #ffffff !important;
+  }
+}

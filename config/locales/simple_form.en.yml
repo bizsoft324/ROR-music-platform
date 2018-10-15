@@ -1,0 +1,17 @@
+en:
+  simple_form:
+    required:
+      text: required
+      mark: '*'
+    error_notification:
+      default_message: 'Please review the problems below:'
+    placeholders:
+      track:
+        title: Beat Title
+        description: Add information about your beat
+      tags:
+        title: Tags for your Beat
+      user:
+        email: Email
+        password: Password
+        password_confirmation: Password confirmation

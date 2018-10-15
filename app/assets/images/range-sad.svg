@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+  x="0px" y="0px" width="26px" height="26px" viewBox="-0.5 -0.5 26 26" enable-background="new -0.5 -0.5 26 26"
+  xml:space="preserve">
+<circle id="Oval-17_1_" fill="#F5A723" cx="13" cy="13" r="13"/>
+<path id="eye_3_" fill="#FFFFFF" d="M7.071,9.988c0,0.771,0.664,1.396,1.484,1.396c0.819,0,1.483-0.625,1.483-1.396"/>
+<path id="eye_2_" fill="#FFFFFF" d="M15.602,9.988c0,0.771,0.664,1.396,1.484,1.396c0.819,0,1.483-0.625,1.483-1.396"/>
+<path id="mouth_1_" fill="#FFFFFF" d="M7.306,16.838c-0.342,0-0.621,0.35-0.621,0.78s0.278,0.78,0.621,0.78H18.89
+  c0.343,0,0.62-0.35,0.62-0.78s-0.277-0.78-0.62-0.78H7.306z"/>
+</svg>

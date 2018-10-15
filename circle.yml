@@ -1,0 +1,33 @@
+general:
+  artifacts:
+    - 'tmp/capybara'
+machine:
+  ruby:
+    version: 2.3.1p112
+  pre:
+    - sudo curl --output /usr/local/bin/phantomjs https://s3.amazonaws.com/circle-downloads/phantomjs-2.1.1
+    - sudo apt-get install redis-server
+test:
+  pre:
+    - cp config/secrets.yml.example config/secrets.yml
+
+  post:
+    - bundle exec rubocop
+deployment:
+  production:
+    branch: master
+    commands:
+      - '[[ ! -s "$(git rev-parse --git-dir)/shallow" ]] || git fetch --unshallow'
+      - git push git@heroku.com:beat-thread-testing.git $CIRCLE_SHA1:master -f
+      - heroku run rake db:migrate --app beat-thread-testing
+      - heroku restart --app beat-thread-testing
+  staging:
+    branch: staging
+    commands:
+      - '[[ ! -s "$(git rev-parse --git-dir)/shallow" ]] || git fetch --unshallow'
+      - git push git@heroku.com:beat-thread-staging.git $CIRCLE_SHA1:master -f
+      - heroku run rake db:migrate --app beat-thread-staging
+      - heroku restart --app beat-thread-staging
+machine:
+  environment:
+    SECRET_KEY_BASE: 076998582f1875204e5589a7f663dfe3a21ab080ab5df2afcbb988e55657668e

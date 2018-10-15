@@ -1,0 +1,36 @@
+.beats-menu
+  margin: 0
+  padding: 0
+
+  @include tablet
+    padding-top: 26px
+    text-align: right
+    margin-bottom: 10px
+
+  @include mobile
+    li
+      margin: 0px 10px 
+
+  li
+    display: inline-block
+    margin-right: 65px
+    padding: 0
+
+  li.current
+    border-bottom: $underline-border solid $primary
+
+    a
+      color: $white
+
+  a
+    line-height: 80px
+    font-size: 14px
+    letter-spacing: 1.9px
+    color: $primary
+    text-decoration: none
+    text-transform: uppercase
+
+  li:last-child
+    margin-right: 0
+
+

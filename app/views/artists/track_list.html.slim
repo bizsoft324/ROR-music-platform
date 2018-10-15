@@ -1,0 +1,28 @@
+.artist__panel-info
+  .artist__panel-info__name
+    |#{@artist.name} 
+  .artist__panel-info__location = @artist.location
+.top-panel
+  span.top-panel__title = @artist.artist_info
+section
+  .artist-avatar style="background-image: url(#{@artist.avatar_url})"
+  .track-filter.scroll-right
+    .container
+      .artist__margin.columns.is-gapless
+        .column.is-2
+          .artist__avatar = image_tag @artist.avatar.url(:medium)
+        .column.is-3.artist__container
+          .artist__name = @artist.name
+          .artist__location = @artist.location
+        .vertical-align
+          - if @artist.description.present?
+            .biography
+              span = @artist.description
+
+      .columns.header
+        .column.is-6.is-12-mobile.is-gapless.sort-filter.select-input.information data-selectinput='true'
+          .counter
+            = t('count_beats', count: @artist.tracks.count)
+          = select_tag :order, options_for_select([['Newest - Oldest', 'desc'], ['Oldest - Newest', 'asc']], 'desc'), id: 'tracks_order'
+      #artist_tracklist_results
+        = render partial: 'beats/track', collection: @artist_tracks

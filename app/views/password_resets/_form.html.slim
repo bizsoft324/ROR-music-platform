@@ -1,0 +1,6 @@
+= simple_form_for '', html: { id: 'password_reset' }, data: { remote: true }, url: password_resets_path, method: :post, defaults: { input_html: { class: 'input-form' } } do |f|
+  = f.input :email, label: false, input_html: {placeholder: 'Email', 'data-parsley-required' => "true", 'data-parsley-required-message' => "email required", 'data-parsley-errors-container'=> ".parsley-error-message"}
+  = f.button :button, 'Reset', data: { disable_with: spinner_loader }, class: 'next-form'
+  .parsley-error-message
+    span.error
+      = @error

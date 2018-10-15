@@ -1,0 +1,30 @@
+.comment-box
+  max-width: 775px
+  width: 100%
+  bottom: -8px
+  z-index: 6
+  position: fixed
+
+  .comment-area
+    position: relative
+
+    .characters-amount
+      position: absolute
+      right: 2%
+      bottom: 3%
+      z-index: 10
+
+  textarea
+    border: 1px solid $lighttext
+    width: 100%
+    background-color: $lightgray
+    height: 11.1vh
+    padding: 10px 80px 10px 15px
+
+  &__error
+    color: $red-orange
+    background: rgba($darktext, 0.5)
+    padding-left: 15px
+
+  &--space
+    height: 14vh

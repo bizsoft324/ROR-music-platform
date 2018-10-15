@@ -1,0 +1,96 @@
+@import "_loader-base";
+
+.dot:first-child {
+  animation: dotAnim @duration 0s infinite, enter-west @duration 0s infinite;
+}
+
+.dot:nth-child(2) {
+  margin-left: @circle-width;
+  animation: dotAnim @duration 0.2s infinite, enter-north @duration 0.2s infinite;
+}
+
+.dot:nth-child(3) {
+  margin-top: @circle-width;
+  animation: dotAnim @duration 0.6s infinite, enter-south @duration 0.6s infinite;
+}
+
+.dot:nth-child(4) {
+  margin-top: @circle-width;
+  margin-left: @circle-width;
+  animation: dotAnim @duration 0.4s infinite, enter-east @duration 0.4s infinite;
+}
+
+@center: @loader-width/2;
+@offset: 100px;
+
+// common
+@keyframes "dotAnim" {
+  0% {
+    background-color: transparent;
+  }
+
+  33%, 67% {
+    background-color: @css-loader-color;
+  }
+
+  100% {
+    background-color: transparent;
+  }
+}
+
+// enter from different directions
+@keyframes "enter-west" {
+  0% {
+    transform: translateX(-@offset) scale(0.1);
+  }
+
+  33%, 67% {
+    transform: translateX(0) scale(1);
+  }
+
+  100% {
+    transform: translateX(@offset) scale(0.1);
+  }
+}
+
+@keyframes "enter-east" {
+  0% {
+    transform: translateX(@offset) scale(0.1);
+  }
+
+  33%, 67% {
+    transform: translateX(0) scale(1);
+  }
+
+  100% {
+    transform: translateX(-@offset) scale(0.1);
+  }
+}
+
+@keyframes "enter-north" {
+  0% {
+    transform: translateY(-@offset) scale(0.1);
+  }
+
+  33%, 67% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(@offset) scale(0.1);
+  }
+}
+
+@keyframes "enter-south" {
+  0% {
+    transform: translateY(@offset) scale(0.1);
+  }
+
+  33%, 67% {
+    transform: translateY(0) scale(1);
+  }
+
+  100% {
+    transform: translateY(-@offset) scale(0.1);
+  }
+}

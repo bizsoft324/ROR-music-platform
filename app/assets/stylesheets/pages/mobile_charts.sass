@@ -1,0 +1,45 @@
+.beat-chart-header
+  margin: 0px 5px
+
+  .beat__month
+    width: 100%
+    position: relative
+
+    p
+      position: absolute
+      bottom: 10px
+      right: 5px
+
+.mobile-chart-menu
+  display: none
+  background-color: $black_17
+  opacity: 0.95
+  padding: 25px 0px 45px
+  text-align: center
+  position: absolute
+  z-index: 50
+  width: 100%
+  text-transform: uppercase
+
+  li
+    padding: 25px
+
+.charts-header-mobile
+  @extend .beat-header-mobile
+  text-transform: uppercase
+  font-size: 12px
+  color: white
+  padding: 25px 35px
+  font-weight: bold
+
+  &:after
+    display: block
+    content: "\f0d7"
+    position: absolute
+    top: 50%
+    right: 25px
+    margin: -5px 0 0
+    font-family: FontAwesome
+    font-size: 15px
+    line-height: 1em
+    color: $primary

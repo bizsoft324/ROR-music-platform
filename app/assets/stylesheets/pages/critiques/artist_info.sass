@@ -1,0 +1,90 @@
+.close-button
+  font: bold 26px/100% Arial, Helvetica, sans-serif
+  position: absolute
+  text-align: center
+  margin: 0
+  transition: color .3s
+  padding: 0.5rem 0.5em
+  background-color: #2bb673
+  z-index: 3000
+  border-style: none
+  color: #ffffff
+  top: 0%
+  right: 0%
+
+  &:after
+    content: '×'
+
+  &:hover
+    color: black
+
+  &:focus
+    outline: none
+
+.artist
+
+  &__wrap
+    margin-bottom: 20px
+
+  &__info
+    padding-top: 0
+
+  &__thumb
+    width: 40px
+    height: 39px
+
+  &__header
+    background-color: $black
+    padding: 1vh
+    margin: 0
+
+    span
+      display: inline-block
+      margin: 0 5px
+      vertical-align: middle
+
+      span
+        img
+          padding-top: 11px
+
+      h4
+        margin: 5px 0 0 0
+        font-weight: 300
+        font-size: 22px
+        color: $primary
+        text-transform: capitalize
+
+        a
+          color: $primary
+
+        span
+          color: $white
+          padding-left: 7px
+
+  &__header-bottom
+    background-color: $white
+
+    .top-list
+      padding: 20px
+
+      a
+        color: $primary
+        text-transform: uppercase
+        font-size: 15px
+        font-weight: 500
+        letter-spacing: 2.2px
+
+  &__streams
+    position: relative
+    background: image-url('stream-bg.png')
+    max-height: 118px
+
+    .fill-1
+      z-index: 2
+    .spinner-loader
+      width: 6em
+      height: 6em
+
+  &__avatar
+    height: 100%
+    object-fit: cover

@@ -1,0 +1,6 @@
+.scroll-right.scroll-right-home-page
+  - cache 'slider', expires_in: 1.hour
+    = render 'shared/slider'
+
+  .container.container--overlaid.is-hidden-mobile
+    = render partial: 'beats/track', collection: @tracks

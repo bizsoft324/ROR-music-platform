@@ -1,0 +1,15 @@
+.share-modal
+  span.top SIGN IN
+= simple_form_for @user_session, url: session_path, html: { class: 'form' }, remote: true do |f|
+  .form__inputs
+    = f.input_field :email_or_username, label: false, placeholder: 'Email or username'
+    = f.full_error :email_or_username
+    = f.input_field :password, label: false, placeholder: 'Password'
+    = f.full_error :password
+  .form__remember
+    input class='checkbox' type='checkbox' checked='checked' name='session[remember_me]' id='session_remember_me'
+    = f.label :remember_me
+  = f.button :button, 'SIGN IN', data: { disable_with: spinner_loader }, class: 'form__button'
+.form__links
+  = link_to 'Sign Up', new_user_path, remote: true
+  = link_to 'Forgot Password?', new_password_reset_path, remote: true

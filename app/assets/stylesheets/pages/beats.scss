@@ -1,0 +1,74 @@
+body.beats-index {
+  #after-slider { padding-top: 1rem; }
+  .counter { position: absolute !important; bottom: 2rem !important; }
+
+  .subgenre { display: flex;  padding: 1em;}
+}
+
+
+.full-bg {
+  background-color: white;
+  margin-bottom: 1.4em!important;
+}
+
+.top-list {
+  margin: 0;
+  padding: 1em 0 1em 1em;
+  list-style: none;
+  display: inline-block;
+
+  li {
+    display: inline-block;
+    font-family: "Yantramanav", sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    color: #4a4a4a;
+    padding-right: 10px;
+    line-height: 21px;
+    vertical-align: middle;
+  }
+
+  span {
+    padding: 0 8px;
+    color: #4a4a4a;
+  }
+}
+
+.tabs {
+  line-height: normal;
+  position: relative;
+  clear: both;
+  margin: 0;
+  background: white;
+  overflow: inherit;
+
+  .tab {
+    margin-top: 1.2em;
+
+    label {
+      position: relative;
+      margin: 0 1.4em;
+      font-weight: 500;
+      font-family: "Yantramanav", sans-serif;
+      text-transform: uppercase;
+      -webkit-transition: background-color 0.17s linear;
+      font-size: 15px;
+      letter-spacing: 2.2px;
+      color: $primary;
+    }
+
+    label img {
+      vertical-align: top;
+    }
+  }
+}
+
+.tab [type=radio] { display: none; }
+
+[type=radio]:checked ~ label {
+  z-index: 1;
+  color: #4a4a4a;
+  background: white;
+  padding-bottom: 5px;
+  border-bottom: 3px solid #2bb673;
+}

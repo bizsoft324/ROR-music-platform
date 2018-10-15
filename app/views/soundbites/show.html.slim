@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Data start:
+  = @soundbite.data_start
+p
+  strong Data end:
+  = @soundbite.data_end
+p
+  strong Commend:
+  = @soundbite.comment_id
+p
+  strong Data url:
+  = @soundbite.data_url
+p
+  strong Data:
+  = @soundbite.data_id
+p
+  strong Data plays:
+  = @soundbite.data_plays
+
+= link_to 'Edit', edit_soundbite_path(@soundbite)
+'|
+= link_to 'Back', soundbites_path

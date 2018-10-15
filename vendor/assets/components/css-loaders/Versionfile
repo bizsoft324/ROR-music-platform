@@ -1,0 +1,30 @@
+require 'json'
+
+# Automatically create an atomic commit of the version file update
+# and create a new tag.
+automate_git :actions => [:commit, :tag]
+
+files = ['./bower.json', './package.json']
+
+read_version do
+
+  versions = files.map do |file|
+    doc = JSON.load File.read file
+    version = doc['version']
+  end
+
+  unless versions.uniq.length == 1
+    puts "ERROR: Version mismatch between bower and npm package!"
+    exit
+  end
+
+  versions.first
+end
+
+write_version do |currentVersion, nextVersion|
+  files.each do |file|
+    doc = JSON.load File.read file
+    doc['version'] = nextVersion.to_s
+    File.open(file, 'w') {|f| f.write JSON.pretty_generate(doc) }
+  end
+end

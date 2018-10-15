@@ -1,0 +1,50 @@
+.logins#logins class="#{'hide' if user.errors.present?}"
+  .unique-login
+    h4 Sign up With Email
+    a.button.email#envelope_button
+      i.uk-icon-envelope
+
+  .social-login
+    h4 Or Connect With
+    /= link_to session_sound_cloud_path, class: 'button social soundcloud' do
+    /  i.uk-icon-soundcloud
+    = link_to '/auth/twitter', class: 'button social twitter', data: { turbolinks: false } do
+      i.uk-icon-twitter
+fieldset.form-create-account#form_create_account class="#{'hide' unless user.errors.present?}"
+  .sign_in__top
+    span CREATE ACCOUNT
+  = simple_form_for user, html: { id: 'sign-up-form' }, data: { remote: true }, defaults: { input_html: { class: 'input-form' } } do |f|
+    .form-user data-active='true'
+      = f.input_field :first_name, label: false, placeholder: 'First Name', autofocus: true, 'data-parsley-required-message' => 'first name required'
+      = f.full_error :first_name
+      = f.input_field :last_name, label: false, placeholder: 'Last Name', autofocus: true, 'data-parsley-required-message' => 'last name required'
+      = f.full_error :last_name
+      = f.input_field :city, label: false, placeholder: 'City', autofocus: true, 'data-parsley-required-message' => 'City required'
+      = f.full_error :city
+      = f.input_field :country, priority: ['United States']
+      = f.full_error :country
+      br
+      span class="terms-error"
+        = checkbox_default('agree', '', value: true, checked: @agree, data: {'parsley-required' => "true", 'parsley-required-message' => "Agreement required" })
+      = link_to 'Agree to terms & conditions', { controller: 'pages', action: 'show', page: 'terms' }, class: 'terms-link', target: '_blank'
+      .sign_in__logo.is-hidden-mobile
+        = inline_svg('logo-bt.svg')
+        span BEAT
+        span.thin THREAD
+      a.next-form
+        = 'Next'
+
+    .form-user.hide data-active='false'
+      = f.input_field :email, label: false, placeholder: 'Email', autofocus: true, 'data-parsley-required-message' => 'email required'
+      = f.full_error :email
+      = f.input_field :password, label: false, placeholder: 'Password', autofocus: true, 'data-parsley-required' => 'true', 'data-parsley-required-message' => 'password required', 'data-parsley-minlength' => '8', 'data-parsley-minlength-message' => 'password should have min 8 characters'
+      = f.full_error :password
+      = f.input_field :password_confirmation, label: false, placeholder: 'Password (must match above)', autofocus: true, 'data-parsley-required' => 'true', 'data-parsley-required-message' => 'password confirmation required', 'data-parsley-equalto'=> '#user_password', 'data-parsley-equalto-message' => "password doesn't match"
+      = f.full_error :password_confirmation
+      = f.input_field :username, label: false, placeholder: 'Choose username', autofocus: true,  pattern: '^[a-zA-Z][a-zA-Z0-9_-]+$', 'data-parsley-minlength' => '4', 'data-parsley-required-message' => 'username required', 'data-parsley-minlength-message' => 'username should have min 4 characters'
+      = f.full_error :username
+      .sign_in__logo.is-hidden-mobile
+        = inline_svg('logo-bt.svg')
+        span BEAT
+        span.thin THREAD
+      = f.button :button, 'Next', data: { disable_with: spinner_loader }, class: 'next-form'

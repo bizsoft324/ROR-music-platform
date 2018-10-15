@@ -1,0 +1,45 @@
+.twitter-auth-form-wrapper
+  color: $darktext
+  display: flex
+  height: 100%
+
+  fieldset
+    width: 70%
+    margin: 40px auto
+
+    legend
+      margin: 0 auto
+
+      .provider-icon
+        display: block
+        text-align: center
+        font-size: 38px
+        color: $twitter
+
+    .profile-form
+      padding: 40px 0px
+
+      .tw-next
+        @extend .button
+        @extend .is-primary
+        @extend .is-submit
+        position: fixed
+        bottom: 0
+        right: 0
+
+      h3
+        text-align: center
+        margin: 0px auto 70px auto
+
+      input[type="text"], input[type="email"], input[type="password"]
+        width: 100%
+        border-bottom: 1px solid black
+        line-height: 2.5
+        font-size: 22px
+        font-weight: 300
+        letter-spacing: 0.5px
+
+      .avatar-wrap
+        margin: 10px auto
+        width: 150px
+        height: 150px

@@ -1,0 +1,25 @@
+.top-panel.is-hidden-mobile.critique-header
+  .top-panel__title RATINGS
+  ul.top-panel__menu.beats-menu#critiques_items
+    li.current
+      = link_to t('.received'), ratings_path(type: 'received'), remote: true
+    li
+      = link_to t('.given'), ratings_path(type: 'given'), remote: true
+  .pull-right
+    = link_to 'View Your Critiques ⟶ ', critiques_path, class: 'view-ratings'
+
+
+section.critique-wrap.scroll-right
+  .beat-tab-content.critiques-list
+    .list-container.inner-content
+      .container#after-slider
+        .columns.header
+          .column.is-6.is-gapless
+            .critique-counter.counter#ratings_count #{@received_ratings.count} RATINGS RECEIVED
+          .column.is-6.is-gapless.sort-filter.select-input data-selectinput='true'
+            = form_tag ratings_path, method: :get do
+              = select_tag 'sort', options_for_select(sort_params, sort_params[0][1]), id: 'ratings_sort', class: 'themes-select select-select'
+
+        #ratings_list
+          - cache [@ratings, 'ratings_list', current_user] do
+            = render partial: 'rating', locals: { ratings: @received_ratings }

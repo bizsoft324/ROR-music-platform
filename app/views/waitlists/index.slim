@@ -1,0 +1,44 @@
+.columns.is-gapless
+  .column
+    .wait-list__content
+      .container
+        center
+          a href='#'
+          = image_tag 'brand@3x.png', class: 'space'
+
+        center
+          h1 The new home for music producers.
+
+        .columns
+          .column.is-8.is-offset-2
+            .wait-list__rectangle
+              h1
+                | There are
+                span.counting
+                   strong
+                    | #{@total}
+                | people in line for access to BeatThread
+              .wait-list__form data-wait-list-form='true'
+                form#waitlist_form data-parsley-validate=""
+                  input data-parsley-required='true' data-parsley-type='email' id='email-capture' name='email' placeholder='Join the waiting list' type='text'
+                  .wait-list__footer
+                    a.button.next#button_next Join
+            p.notes-text
+                | We’re a community built for producers by producers. We’re the place where producers can grow their audience, gain exposure, find inspiration and collaboration, and get real feedback on their music.
+        .columns
+          .column.is-10.is-offset-1
+            center
+              = video_tag 'BT-walkthrough.mov', controls: true, autobuffer: true
+        .columns
+          .column
+            .wait-list__bottom
+              center
+                = image_tag 'BT-logo.1.svg'
+
+              ul
+                li
+                  a href='#'  Real feedback.
+                li
+                  a href='#'  More Placements.
+              center
+                a href="mailto:team@beatthread.com" team@beatthread.com

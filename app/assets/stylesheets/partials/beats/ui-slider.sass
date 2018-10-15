@@ -1,0 +1,17 @@
+.ui-slider-handle
+  border-radius: 100%
+  box-shadow: 0 4px 7px $lighttext
+  height: 40px
+  margin-top: -5px
+  width: 40px
+  transition: background-color $transition-time ease-in-out
+
+  &:hover
+    background-color: $primary
+    border-color: $primary
+    border-width: 2px
+    transition: all $transition-time ease-in-out
+
+  &:active, &:focus
+    background-color: $primary
+    border-color: $primarydark

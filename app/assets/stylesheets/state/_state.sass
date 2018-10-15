@@ -1,0 +1,91 @@
+// Navbar icons
+.is-active
+
+  .icon &
+    transition: background-image 0.1s ease
+
+    &.icon__nav-icon
+      @extend .icon__nav-icon__close
+
+  &.user-thumbnail
+    transition: opacity 0.1s ease
+    opacity: 0
+
+#mobile-navigation
+  &.is-fixed
+    position: fixed
+    width: 100%
+
+// Beats List Mobile User Logged In
+.beat-list-mobile
+
+  .beats-rating-tab-view
+    &.is-active
+      display: flex
+      opacity: 1
+
+      ul
+        margin: 40px auto
+
+  .beats-critique-tab-view
+    &.is-active
+      display: block
+      opacity: 1
+
+  .beats-critique-tab-view
+    .tabs
+      li
+        &.is-active
+          color: $primary
+          transition: opacity $transition-time-normal ease
+
+          &:after
+            opacity: 1
+            left: 10%
+            transition: opacity $transition-time-normal linear
+
+.mobile-tab
+  .mobile-tab-content
+    &.is-active
+      display: block
+      opacity: 1
+      transition: opacity $transition-time-normal ease
+
+.beat-mobile-footer
+  .tab
+    &.is-active
+      .tab-label
+        opacity: 0
+      i
+        &:after
+          position: absolute
+          top: 0
+          left: 0
+          content: ""
+          background: url("close.svg") no-repeat center
+          background-color: $lightergray
+          height: 100%
+          width: 100%
+          display: block
+          opacity: 1
+
+.fixed-player-mobile
+  &.is-active
+    bottom: 0vh
+    transition: all $transition-time-normal ease-in-out
+
+  &__btn-expand-player
+    &.is-active
+      &:after
+        content: "\f00d"
+
+  &__comment-form
+    .textarea-error
+      color: red
+
+// Charts page mobile
+
+.charts-header-mobile
+  &.is-active
+    &:after
+      content: "\f0d8"

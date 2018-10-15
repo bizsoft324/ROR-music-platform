@@ -1,0 +1,17 @@
+#mobile-beats
+  .beat-header-mobile
+    .columns.is-mobile
+      .column.is-4
+        / span.icon
+          / .icon__nav-icon.icon__nav-icon__filter#toggle-filter
+      .column.is-8
+        .styled-select.black.rounded
+          select
+            = options_for_select [['Newest - Oldest', { desc: true, id: 'sort_by_desc'}], ['Oldest - Newest', {asc: false, id: 'sort_by_asc'}]]
+
+  / removed until search is implemented
+  = render 'mobile_beats_filter', genres: @genres
+  = render partial: 'beats/track', collection: @tracks
+  
+  / removed the persistent player for now
+  /= render 'beats/player'

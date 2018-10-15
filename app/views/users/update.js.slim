@@ -1,0 +1,38 @@
+- if @user.errors.present?
+  | if($(window).width() > 480){
+  | $.lazybox("#{j(render partial: 'sessions/profile_form', locals: {user: @user, avatar_data: @avatar_data})}", {esc: false, close: false, modal: true, klass: 'twitter-modal'});
+  | $("#inputFile").change(function () { readURL(this); });
+  | $('form.simple_form.edit_user .profile-form').addClass( 'hide' );
+  | $('form.simple_form.edit_user .error').first().parents('.profile-form').removeClass( 'hide' );
+  | }
+  | else {
+  |   $("#mobile-sign-up-form").remove();
+  /
+  / Create elements to wrap the form partial and append to body
+  /
+  |   var mobileFormWrapper = document.createElement('div');
+  |   var twitterFormWrapper = document.createElement('div');
+  |   mobileFormWrapper.setAttribute('id', 'mobile-sign-up-form');
+  |   mobileFormWrapper.setAttribute('class', 'mobile-sign-up-wrapper');
+  |   twitterFormWrapper.setAttribute('id', 'twitter-auth-form');
+  |   twitterFormWrapper.setAttribute('class', 'twitter-auth-form-wrapper');
+  |   $('body').addClass('has-overflow-hidden');
+  |   $("#sign-in-item").hide();
+  |   $("#toggle-sign-up").show();
+  |   $("#toggle-user-menu").hide();
+  |   $(mobileFormWrapper).append(twitterFormWrapper);
+  |   $("body").prepend(mobileFormWrapper);
+  |   $('#twitter-auth-form').prepend('#{j(render partial: 'sessions/profile_form', locals: {user: @user, avatar_data: @avatar_data})}');
+  | }
+  - if @avatar_data
+    | $('#image_upload_preview').attr('src', "#{@avatar_data}")
+- else
+  | if($(window).width() > 480){
+  | $.lazybox.close();
+  | window.location = "#{new_track_path}"
+  |}
+  |else {
+  | $('#mobile-sign-up-form').remove();
+  | $('#toggle-sign-up').hide();
+  | $('#toggle-user-menu').show();
+  |}

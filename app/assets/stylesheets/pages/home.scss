@@ -1,0 +1,100 @@
+body.home-index {
+
+  height: 100vh;
+  background-color: $navyblue;
+  div.profiler-results {  top: auto;  bottom: 0;  }
+
+
+  .navbar-item a.sign-up {  top:0px;  }
+
+
+  section.light-gray-bg {  padding-top: 0;  }
+
+
+  #ninja-slider .slider-inner {  margin: 111px 0 -50px 0px;  }
+
+
+  a.ns-img {  border-bottom: 1px $navyblue solid;  }
+
+
+  #after-slider {  padding: 1em; margin: 2rem; padding-bottom: 2em;  }
+
+
+  .caption {  margin-top: 3rem !important;  }
+
+
+  footer {
+    background-color: #282832;;
+    text-align:center;
+    width:100%;
+    padding:78px 0px;
+
+    .bg {
+      width: 228px;
+      height: 52px;
+      background-color: #2bb673;
+      color: #fff;
+      margin: 0 auto;
+      line-height: normal;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 2em;
+      font-family: "Yantramanav", sans-serif;
+      border:none;
+
+      &:hover {
+        width: 228px;
+        height: 52px;
+        background-color: #2bb673;
+        color: #fff;
+        margin: 0 auto;
+        line-height: normal;
+        font-size: 15px;
+        border:none;
+      }
+    }
+
+    p {
+      a:link{
+        font-size: 15px;
+        letter-spacing: 1.9px;
+        color: #2bb673;
+      }
+    }
+  }
+
+  .home-left-section {
+    background: image-url("rate_beats.png"), image-url("big-rate.png"), ;
+    background-repeat: no-repeat;
+    background-position:10px 20px , 231px 200px ;
+    background-size: auto , 220px;
+  }
+
+
+  .home-right-section {
+    background: image-url("give_feedback.png"), image-url("give_feedback.png");
+    background-repeat: no-repeat;
+    background-position:right 60px top 0px, right 277px top 126px ;
+    background-size: 160px auto, 214px auto;
+  }
+
+  .flexslider {
+    overflow: hidden;
+
+    .slides {
+      zoom: 1.1;
+    }
+
+    p {
+      font-family: "Yantramanav", sans-serif;
+      font-weight: 300;
+      font-size: 6vw;
+      top: 80px;
+
+      @include desktop() {
+        top: 2em;
+      }
+    }
+  }
+}

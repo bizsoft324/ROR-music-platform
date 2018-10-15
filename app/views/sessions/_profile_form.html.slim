@@ -1,0 +1,62 @@
+fieldset
+  legend
+    span.provider-icon
+      i class="uk-icon-#{params[:provider]}"
+    = "#{params[:provider].upcase} AUTHORIZED"
+  hr.is-hidden-mobile
+  = simple_form_for user, html: { id: 'twitter_sign_up_form' }, data: { remote: true } do |f|
+    .profile-form.count-fields-1 data-active='true' class="#{'modify-offset' unless user.fullname?}"
+      h3 = "Keep #{params[:provider]} username or type a new one"
+      br
+      div
+        = f.input_field :username, label: false, placeholder: 'Username', autofocus: true, 'data-parsley-required-message' => 'Please enter a user name.'
+        = f.error :username
+      br
+      = content_tag :span, class: (user.fullname? ? 'hide' : 'fullname') do
+        div
+          = f.input_field :first_name, label: false, placeholder: 'First name', 'data-parsley-required-message' => 'Please enter a first name'
+          = f.error :first_name
+        br
+        div
+          = f.input_field :last_name, label: false, placeholder: 'Last name', 'data-parsley-required-message' => 'Please enter a last name'
+          = f.error :last_name
+        br
+      a.next.tw-next Next
+    .profile-form.count-fields-2.hide data-active='false'
+      h3 = 'Is this the correct location?'
+      br
+      div
+        = f.input_field :city, label: false, placeholder: 'City', autofocus: true, 'data-parsley-required-message' => 'Please enter your city.'
+        = f.error :city
+      br
+      div
+        = f.input_field :country, priority: ['United States']
+        = f.error :country
+      br
+      a.next.tw-next Next
+    .profile-form.count-fields-3.hide data-active='false'
+      div
+        = f.input_field :email, label: false, placeholder: 'Email', autofocus: true, required: true, 'data-parsley-required-message' => 'Please enter your email.'
+        = f.error :email
+      .clearborder
+      br/
+      div
+        = f.input_field :password, label: false, placeholder: 'Password', autofocus: true, required: true, 'data-parsley-required-message' => 'Please enter a password.', 'data-parsley-minlength' => '8', 'data-parsley-minlength-message' => 'Password should have minimum 8 characters.'
+        = f.error :password
+      br
+      div
+        = f.input_field :password_confirmation, label: false, placeholder: 'Password (must match)', autofocus: true, required: true, 'data-parsley-required-message' => 'Please confirm password.', 'data-parsley-equalto'=> '#user_password', 'data-parsley-equalto-message' => "Passwords don't match"
+        = f.error :password_confirmation
+      br
+      a.next.tw-next Next
+    .profile-form.hide data-active='false'
+      h3 = 'Use the same avatar?'
+      .form-group
+        .avatar-wrap
+          = image_tag current_user.avatar.url(:medium), class: 'avatar-image', id: 'image_upload_preview'
+        = f.label :browse, class: 'button is-primary is-browse', for: 'inputFile'
+        = f.file_field :avatar, class: 'hide', id: 'inputFile'
+      = hidden_field_tag 'provider', params[:provider]
+      = hidden_field_tag 'avatar_data', avatar_data
+      br
+      = f.button :button, 'Submit', data: { disable_with: spinner_loader }, class: 'next tw-next'

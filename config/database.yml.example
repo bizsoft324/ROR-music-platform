@@ -1,0 +1,17 @@
+default: &default
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  username: postgres
+  password: postgres
+  timeout: 5000
+  port: 5432
+  pool: 5
+
+development:
+  <<: *default
+  database: beat
+
+test:
+  <<: *default
+  database: beat_test

@@ -1,0 +1,5 @@
+| $('#artist_tracklist_results').html('
+= j render partial: 'beats/track', collection: @artist_tracks, cached: true
+| ');
+| wait_and_run(window.waves.waveform_proc(), 500);
+| initSlider();

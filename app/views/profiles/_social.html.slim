@@ -1,0 +1,19 @@
+.profile__content
+  = simple_form_for current_user, html: { class: 'profile__form--social' }, defaults: { input_html: { class: 'input' } }, url: profile_path, method: :put, multipart: true, remote: true do |s|
+    .profile__social data-social='0'
+      span data-background=''
+        i class="uk-icon-twitter" data-icon=''
+      input type='text' class='profile__link' placeholder='Paste URL' data-link='0'
+      input type='text' class='profile__link--name' placeholder='Label' data-label='0'
+      = link_to '#' do
+        = inline_svg 'add.svg', data: { add: true }
+    - (1..4).each do |e|
+      .profile__social.profile__social--hidden data-social="#{e}"
+        span data-background=''
+          i class="uk-icon-twitter" data-icon=''
+        input type='text' class='profile__link' placeholder='Paste URL' data-link="#{e}"
+        input type='text' class='profile__link--name' placeholder='Label' data-label="#{e}"
+        = link_to '#' do
+          = image_tag 'trash.png', data: { trash: e }
+    button.profile__save.profile__save--social type='button'
+      | SAVE

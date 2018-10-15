@@ -1,0 +1,19 @@
+.share-modal.modal-social
+  span.top = t('.title', title: @track.title)
+  h5.title = t('.share_social')
+  .share__rectangle.share__rectangle--modal
+    .share__social-buttons
+      ul
+        li
+          a.share-button.twitter.uk-icon-twitter href="https://twitter.com/intent/tweet?status=#{@track.title} + https://beatthread.com" data-share-button='true' target="_blank"
+        li
+          a.share-button.facebook.uk-icon-facebook href="http://www.facebook.com/sharer/sharer.php?u=https://beatthread.com&title=#{@track.title}" data-share-button='true' target="_blank"
+        li
+          a.share-button.tumblr.uk-icon-tumblr href="http://www.tumblr.com/share?v=3&u=https://beatthread.com&t=#{@track.title}" data-share-button='true' target="_blank"
+        li
+          a.share-button.googleplus.uk-icon-google-plus href="https://plus.google.com/share?url=https://beatthread.com" data-share-button='true' target="_blank"
+        li
+          a.share-button.email.uk-icon-envelope href="mailto:?Subject=#{@track.title} by #{@track.user.username}&amp;&Body=#{@track.description}"
+        li
+          a.sms.uk-icon-commenting href="sms:?&body="
+      span#social-share-close Done

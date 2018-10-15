@@ -1,0 +1,22 @@
+<% if params[:filters].nil? || params[:filters].except(:sort_by, :ratings).empty? %>
+  $('#beats_header_title').text('ALL BEATS');
+<% else %>
+  $('#beats_header_title').text("<%= t(:count_beats, count: @count) %>");
+<% end %>
+
+// Code below is for endless pagination
+<% if params[:page] %>
+  $('#beats-list').append("<%= j render partial: 'beats/track', collection: @tracks %>");
+
+  <% if @tracks.last_page? %>
+    $('[data-beat-main-right]').find('nav').hide();
+  <% else %>
+    $('[data-beat-main-right]').find('nav').html('<%= j paginate @tracks, remote: true %>');
+  <% end %>
+
+<% else %>
+  $('[data-beat-main-right]').scrollTop(0)
+  $('[data-beat-main-right]').find('nav').html('<%= j paginate @tracks, remote: true %>');
+  $('#beats-list').html("<%= j render partial: 'beats/track', collection: @tracks %>");
+<% end %>
+wait_and_run(window.waves.waveform_proc(), 500);

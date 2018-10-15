@@ -1,0 +1,18 @@
+.track-info
+  .item
+    span.item__title.attribute class="#{'attribute--present' if track.has_vocals}" Vocals
+  .item
+    span.item__title.attribute class="#{'attribute--present' if track.has_samples}" Samples
+  .item
+    span.item__title Genres:
+    ul.track-info__list
+      - track.genres.each do |gener|
+        li.track-info__item =< gener.name
+  .item
+    span.item__title Subgenres:
+    ul.track-info__list
+      - track.subgenres.each do |subgener|
+        li.track-info__item =< subgener.name
+  .item
+    span.item__title Shared:
+    span.track-info__item =< track.social_shares

@@ -1,0 +1,33 @@
+.top-panel
+  .container
+    .columns
+      .column.is-gapless
+        h1 = current_user.artist_info
+
+section.inner-content
+  .container
+    .columns.is-gapless
+      .column
+        h4 = t('count_beats', count: current_user.tracks.count)
+
+    div.soundcloud-tracks-list
+      .title
+        = image_tag 'soundcloud-logo.png'
+      .subtitle.level
+        .level-left = t('soundcloud_page.soungs_in_soundcloud', count: @count_tracks)
+        .level-right = t('soundcloud_page.check_to_import')
+      .hidden
+        iframe scrolling='no' frameborder='no' src='https://w.soundcloud.com/player/?url=http%3A%2F%2Fapi.soundcloud.com%2Ftracks%2F34019569&auto_play=false&show_artwork=true&color=0066cc'
+      = simple_form_for 'import_tracks' do |f|
+        - @tracks.each_with_index do |track, index|
+          .soundcloud-track.columns.is-mobile
+            .soundcloud-iframe.column.is-11
+              iframe scrolling='no' frameborder='no' src="https://w.soundcloud.com/player/?url=#{track.uri}&amp;color=ff5900&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=true&amp;show_reposts=false&amp;buying=false&amp;show_artwork=true&amp;sharing=false&amp;show_playcount=false&amp;liking=false"
+            .download-checkbox.column.is-1
+              = checkbox_default 'import_tracks[ids][]', '', value: track.id, id: "import_tracks_#{track.id}"
+        - if @show_link
+          = link_to (@next_href ? t('soundcloud_page.next_page') : t('soundcloud_page.firts_page')), soundcloud_tracks_path(url: @next_href, count_tracks: @count_tracks), class: 'beat-uploading__button beat-uploading__button--finish button-left', data: { disable_with: 'Wait...' }
+        = hidden_field('import_tracks[count_tracks]', @count_tracks)
+        = f.button :submit, t('soundcloud_page.import_selected_beats'),
+          class: "beat-uploading__button beat-uploading__button--finish #{ 'beat-uploading__button--disabled' if @count_tracks == 0 }",
+          data: { disable_with: 'Wait...' }

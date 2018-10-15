@@ -1,0 +1,12 @@
+- object ||= nil
+- if object && object.errors.any?
+  #error_explanation.errors-block
+    div
+      | Please correct the following&nbsp;
+      = pluralize(object.errors.count, 'error')
+      | .
+    ul
+      - split_message ||= nil
+      - messages = split_message ? object.errors.messages.values.compact.flatten : object.errors.full_messages
+      - messages.each do |msg|
+        li = msg

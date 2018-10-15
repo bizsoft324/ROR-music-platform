@@ -1,0 +1,67 @@
+.edit-beat
+  margin: 190px 10px 40px
+
+  @include tablet
+    margin: 50px 18% 40px
+
+  #share-list
+    overflow: hidden
+
+  &__left, &__right
+    font-weight: 500
+    font-size: 11px
+    color: $lighttext
+    text-transform: uppercase
+
+    span
+      display: block
+
+    img
+      padding: 1em
+      margin-bottom: 8.2px
+
+  &__right
+    text-align: right
+
+  &__slider
+    height: 2px
+    background-color: $primary
+    margin: 10px 10%
+
+  &__note
+    font-size: 12px
+    text-align: center
+
+  &__remove-bottom
+    bottom: 10px
+    position: absolute
+
+    a
+      font-size: 15px
+      letter-spacing: 2.2px
+      color: #ff3100
+      text-transform: uppercase
+      font-weight: 500
+
+    img
+      margin-right: 15px
+      vertical-align: text-top
+
+  .col-a
+    @include mobile
+      float: left
+      width: 15%
+
+  .col-b
+    @include mobile
+      float: left
+      width: 70%
+
+  .col-c
+    @include mobile
+      float: left
+      width: 15%
+
+  .text-right
+    @include mobile
+      text-align: left

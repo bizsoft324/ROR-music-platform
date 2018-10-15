@@ -1,0 +1,293 @@
+#fake_image_error
+  color: red
+  opacity: 0
+
+#fake_tags_error
+  color: red
+  opacity: 1
+
+#track_tag_list 
+  width: 100%
+  font-size: 22px
+  color: #999999
+  font-family: "Yantramanav", sans-serif
+  font-size: 16px
+  line-height: 26px
+
+#tag-choices_heading
+  margin-top: 7px
+  
+#track_description
+  min-height: 78px
+  margin-top: 20px
+
+.hashtag-btn
+  font-size: 18px
+
+#beat-tags
+  margin-bottom: 20px
+
+
+#giphy-logo
+  position: relative
+  height: 25px
+  top: -28px
+  right: -200px
+
+#gif-search
+  font-size: 22px
+  height: 33px
+  width: 271px
+  
+#get_gif_btn
+  background-color: #2bb673
+  color: #fff !important
+  position: relative
+  top: -32px
+  left: 210px
+
+#gif_cancel
+  background-color: #fff
+  color: #4a4a4a !important
+  float: right
+  font-size: 15px
+  left: 156px
+  letter-spacing: 2.2px
+  line-height: 47px
+  padding-left: 0
+  padding-right: 31px
+  position: relative
+  text-align: center
+  text-transform: uppercase
+  top: -40px
+
+.gif-area
+  width: 275px
+  height: 44px
+  margin-top: 20px
+
+.temp0
+  position: relative
+  width: 200px
+  margin-top: -13%
+  margin-left: -18%
+
+.temp
+  position: relative
+  width: 210px
+  margin-top: -8%
+  margin-left: -1%
+
+.temp2
+  position: relative
+  width: 207px
+  height: 44px
+  margin-top: -11.5%
+  margin-left: 44.5%
+
+.temp3
+  position: relative
+  width: 100px
+  margin-top: -7%
+  margin-left: -22%
+
+.temp5-gif
+  background-color: #2bb673
+  color: #fff !important
+  float: right
+  font-size: 15px
+  height: 50px
+  letter-spacing: 2.2px
+  line-height: 47px
+  padding: 0 20px
+  text-align: center
+  text-transform: uppercase
+  width: 197px
+
+.beat-uploading
+
+  &__left
+
+    .parsley-errors-list
+      font-size: 14px
+      position: absolute
+      bottom: 67%
+      left: 5%
+
+    li
+      font-weight: 500
+
+    img
+      width: 400px
+      height: 400px
+      background-color: $darktext
+
+    label
+      position: relative
+
+  &__left-info
+    position: relative
+    width: 200px
+    margin-top: -16%
+    margin-left: 18%
+
+
+    .found-gifs
+      display: none
+      position: absolute
+      overflow: auto
+      background-image: linear-gradient(#fff,#f5f8fa)
+      border: 1px solid #e1e8ed
+      max-height: 480px
+      padding: 3px 6px
+      left: 0
+      bottom: 100%
+      right: 0
+      background: white
+      z-index: 1
+
+      &__items
+        column-count: 2
+        column-gap: 3px
+
+        img
+          display: block
+          padding: 2px 0
+          cursor: pointer
+
+
+  &__bottom
+    text-align: right
+    overflow-y: auto
+    margin-top: 20px
+
+  #lazy_body &__bottom
+    margin-bottom: -25px
+    position: relative
+
+  &__button
+    background-color: $white
+    color: $darktext !important
+    float: right
+    font-size: 15px
+    letter-spacing: 2.2px
+    line-height: 47px
+    padding: 0 20px
+    text-align: center
+    text-transform: uppercase
+
+    &--finish
+      background-color: $primary
+      color: $white !important
+
+    &--disabled
+      cursor: not-allowed
+      pointer-events: none
+      background-color: #5faf71
+
+  &__browse
+    background: $primary
+    bottom: 8px
+    left: 0px
+    top: 0px
+    position: relative
+    text-align: center
+    width: 200px
+    height: 50px
+
+    &:hover
+      cursor: pointer
+
+    label
+      font-size: 18px
+      letter-spacing: 1.3px
+      color: $white
+      font-weight: lighter
+      text-transform: uppercase
+
+    span
+      line-height: 47.5px
+      font-size: 15px
+      letter-spacing: 1.3px
+      color: $white
+      text-transform: uppercase
+
+  &__choose
+    text-align: center
+    padding-right: 40px
+
+    label
+      background-color: $primary
+      color: $white
+      font-size: 15px
+      padding: 10px 20px
+
+  &__upload-content
+    background-color: $white
+    padding: 36px 40px
+
+    h3
+      color: $darktext
+      font-size: 16px
+      font-weight: 500
+      letter-spacing: 1.9px
+      margin: 0 0 35px
+      text-align: center
+
+  &__file
+    background-color: $lightgray
+    padding: 78.3px 0
+    margin: 0 8px 8px
+    text-align: center
+    position: relative
+
+    p
+      font-size: 14px
+      letter-spacing: 0.6px
+      color: $lighttext
+      text-transform: uppercase
+      font-weight: 500
+      margin-top: 46.3px
+
+  &__choose-file
+    background-color: $primary
+    color: $white
+    font-size: 18px
+    letter-spacing: 1.3px
+    text-transform: uppercase
+    line-height: 83.5px
+    max-width: 290px
+    margin: 0 auto
+
+    &--scloud
+      background-color: $soundcloud
+
+      img
+        margin-left: 10px
+        vertical-align: inherit
+
+      a
+        color: $white
+
+        &:hover
+          text-decoration: none
+
+  &__dnd
+    display: block
+    opacity: 0
+    top: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    position: absolute
+    z-index: 10
+
+  &__dragover
+    transition: all $transition-time ease-in-out
+    top: 0
+    bottom: 0
+    left: 0
+    width: 100%
+    position: absolute
+    z-index: 5
+    background: repeating-radial-gradient(circle, $lightgray -17px, $lightgray 30.4px, $lightgray 46.4px, $lightgray 36.8px, $gray-accent 36.8px, $gray-accent 50px)

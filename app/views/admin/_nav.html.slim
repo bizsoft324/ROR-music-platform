@@ -1,0 +1,50 @@
+#desktop-navigation
+  nav.navbar#navbar
+    .navbar__group
+      .navbar__item
+        = link_to root_path do
+          = image_tag 'BT-logo.1.svg'
+      .navbar__item
+        = link_to_unless_current 'Beats', beats_path do
+          span Beats
+      .navbar__item
+        = link_to_unless_current 'Charts', charts_path do
+          span Charts
+      /.navbar__item
+      /  = link_to_unless_current 'Battleground', battleground_index_path do
+      /    span Battleground
+    .navbar__group.navbar__group--right
+      - if authenticated?
+        .navbar__item
+          = link_to_unless_current 'Upload', new_track_path do
+            span Upload
+        .navbar__item
+          = link_to_unless_current inline_svg('critique-icon.svg'), critiques_path do
+            span
+              = inline_svg 'critique-icon.svg'
+        .navbar__item
+          = link_to_unless_current inline_svg('beat-icon.svg'), artist_track_list_path(artist_id: current_user.id) do
+            span
+              = inline_svg 'beat-icon.svg'
+        .navbar__item.navbar__item--avatar
+          = link_to profile_path, remote: true do
+            = user_avatar(current_user)
+        .dropdown
+          label for='drop'
+          input type='checkbox' id='drop'
+          .dropdown__content
+            .dropdown__top
+              span = current_user.name
+              .dropdown__right-group
+                = link_to profile_path, remote: true do
+                  = user_avatar(current_user)
+                label
+            .dropdown__center
+              = link_to 'sign out', signout_path
+              = link_to 'manage critiques', admin_critiques_path
+              = link_to 'manage tracks', admin_tracks_path
+              = link_to 'manage users', admin_users_path
+              = link_to 'manage charts', admin_track_charted_index_path
+      - else
+        .navbar__item = link_to 'Sign In', signin_path, remote: true
+        .navbar__item.navbar__item--btn data-validate-create-account='true' = link_to 'Sign Up', signup_path, remote: true

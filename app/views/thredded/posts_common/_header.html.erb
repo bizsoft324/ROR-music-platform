@@ -1,0 +1,6 @@
+<%# @param post [Thredded::PostView] %>
+<header>
+  <%= thredded_user_avatar(post.user) if post.user %>
+  <h2 class="thredded--post--user"><%= link_to post.user.username, artist_track_list_path(artist_id: post.user.id) %></h2>
+  <p class="thredded--post--created-at"><%= time_ago post.created_at %></p>
+</header>

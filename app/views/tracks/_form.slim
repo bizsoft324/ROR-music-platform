@@ -1,0 +1,14 @@
+.top-panel.is-hidden-mobile
+  - if current_user && current_user.artist_info.present?
+    .top-panel__title = current_user.artist_info
+
+section.inner-content.scroll-right
+  .container
+    .columns.is-gapless.is-hidden-mobile
+      .column
+        - if current_user
+          h4 = t('count_beats', count: current_user.track_count)
+
+    = simple_form_for @track, html: { class: 'form-track', id: 'new_upload_track' } do |f|
+      = render 'tracks/upload_audio', f: f
+      = render 'tracks/uploading_content', f: f

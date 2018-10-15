@@ -1,0 +1,11 @@
+$(document).ready(function(){
+  $('#comment-content .error').html("");
+  <% if !@comment.id.nil? %>
+    $('#comment_body').val('');
+    $('#critiques_counter').html("<%= @comment.critique.track.comment_threads.count %> CRITIQUES");
+    $('#critique_comment_list').append("<%= escape_javascript(render(:partial => 'critiques/comment', locals: {:comment=> @comment,animated_class: 'new-item'})) %>");
+  <% else %>
+    $('#comment-content .error').prepend("<%= @comment.errors.full_messages[0] %>");
+  <% end %>
+  $('.fixed-player-mobile__comments-wrapper').append("<%= escape_javascript(render partial: 'tracks/comment', locals: {comment: @comment})%>");
+});

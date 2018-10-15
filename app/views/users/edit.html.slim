@@ -1,0 +1,10 @@
+= simple_form_for @user do |f|
+  = f.input_field :first_name, label: false, placeholder: 'First Name', autofocus: true
+  = f.input_field :last_name, label: false, placeholder: 'Last Name', autofocus: true
+  = f.input_field :city, label: false, placeholder: 'City', autofocus: true
+  = f.input_field :country, priority: ['United States']
+  = f.input_field :email, label: false, placeholder: 'Email', autofocus: true
+  = f.input_field :password, label: false, placeholder: 'Password', autofocus: true
+  = f.input_field :password_confirmation, label: false, placeholder: 'Password (must match)', autofocus: true
+  = f.input_field :username, label: false, placeholder: 'Username', autofocus: true
+  = f.button :submit, 'Submit', class: 'button submit inactive'

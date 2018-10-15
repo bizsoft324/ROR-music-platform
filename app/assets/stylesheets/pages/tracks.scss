@@ -1,0 +1,39 @@
+.track-filter p {
+  color: #ffffff;
+  font-family: "Yantramanav", sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  margin: 0;
+  padding-bottom: 20px;
+  padding-top: 30px;
+}
+
+.styled-select {
+  background: rgba(0, 0, 0, 0) image-url("track-arrow2.png") no-repeat scroll right 15px top 15px;
+  height: 45px;
+  overflow: hidden;
+  width: 230px;
+  float: right;
+}
+.styled-select select {
+  background: transparent;
+  border: none;
+  font-size: 14px;
+  height: 45px;
+  padding: 5px 12px;
+  width: 230px;
+}
+.styled-select select option {
+  padding: 5px 12px;
+  box-shadow: none;
+}
+.black { background-color: #373745; }
+
+.black select {
+  font-family: "Yantramanav", sans-serif;
+  font-size: 15px;
+  color: #9c9c9c;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}

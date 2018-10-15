@@ -1,0 +1,24 @@
+$checkbox: (
+  border: 2px solid $lighttext,
+  border-radius: 0,
+  background: $white,
+  transition: all $transition-time-fast ease-in-out,
+  font-family: 'FontAwesome',
+  font-size: 12px,
+  line-height: 20px,
+  text-align: center,
+  height: 19px,
+  width: 19px,
+  content: ''
+);
+
+$checkbox-hover: (
+  border: 2px solid $lighttext,
+);
+
+$checkbox-checked: (
+  border: 2px solid $primary,
+  background: $primary,
+  color: $white,
+  content: '\f00c'
+)

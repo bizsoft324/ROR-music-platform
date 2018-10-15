@@ -1,0 +1,63 @@
+#mobile-navigation
+  nav.nav
+    .nav-left
+      span.icon#toggle-nav-menu
+        .icon__nav-icon.icon__nav-icon__hamburger
+    .nav-center
+      - if !params[:controller] == 'home'
+        .nav-item.is-centered.is-page-title
+          = @page_title.present? ? @page_title : ""
+      - else
+        .nav-item.is-brand.is-device-centered
+          a.has-v-centered-items href="#{root_path}"
+            = image_tag "BT-logo.1.svg"
+    .nav-right#toggle-sign-up
+      .nav-item
+        - if current_user.present? && !current_page?('/forum')
+          = link_to root_path
+            span.icon
+              .icon__nav-icon.icon__nav-icon__close
+
+        - elsif current_user.present?
+          figure.image.avatar-item#toggle-user-menu
+            = image_tag current_user.avatar.url, class: 'user-thumbnail', id: 'user_thumbnail'
+            span.icon
+              .icon__nav-icon.icon__nav-icon__close
+
+        - else
+          .nav-item#sign-in-item
+            = link_to 'SIGN IN', signin_path, remote: true
+        /span.icon
+        /  .icon__nav-icon.icon__nav-icon__close
+    #nav-menu.nav-menu.hide
+      ul
+        li.nav-item
+          = link_to 'Beats', beats_path
+        li.nav-item
+          = link_to 'Charts', charts_path
+        li.nav-item  
+          = link_to 'Forum', thredded_path
+        li.nav-item
+          = link_to 'Drum Kits', url_for('https://shop.beatthread.com')
+        /li.nav-item
+        /  = link_to "Battleground", battleground_index_path
+        / Still should create mobile version of page.
+
+    - if current_user.present?
+      #user-menu.nav-menu
+        ul
+          li.nav-item
+            = link_to "critiques", critiques_path
+          li.nav-item
+            = link_to "profile", profile_path, remote: true
+          li.nav-item
+            = link_to "my artist page", artist_track_list_path(artist_id: current_user.id)
+          li.nav-item
+            = link_to "sign out", signout_path
+
+        div
+          = link_to "upload a beat", new_track_path, class: "button is-action"
+
+        ul.is-embeded.margin-top-20
+          li
+            = mail_to 'team@beatthread.com', 'Help'

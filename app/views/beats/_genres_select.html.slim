@@ -1,0 +1,10 @@
+- cache @genres do 
+  button.beat-select__button data-action-button='genre' type='button' Genre
+  ul.beats-filter__panel
+    - @genres.each do |genre|
+      h2.beats-filter__title = genre.name + ' sub-genre'
+      - genre.subgenres.each do |subgenre|
+        li
+          span = subgenre.name
+          = check_box_tag 'filters[subgenres][]', subgenre.id, false, class: 'filter-in checkbox not-all-beats', id: "check_subgenre#{subgenre.id}"
+          label for="check_subgenre#{subgenre.id}"

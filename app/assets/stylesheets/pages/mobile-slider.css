@@ -1,0 +1,293 @@
+/* ==========================================================================
+		Slider core styles
+===========================================================================*/
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.slider-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+  background-color: #282832;
+}
+
+.slider {
+  position: relative;
+
+  width: 9999px;
+}
+.slider:before,
+.slider:after {
+  display: table;
+
+  content: ' ';
+}
+.slider:after {
+  clear: both;
+}
+.slider .slide {
+  position: relative;
+
+  float: left;
+
+  margin: 0;
+  padding: 0;
+}
+.slider .slide img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.act,
+#prev > span,
+#next > span,
+#slider-nav > a {
+  background: image-url("arrows.png") no-repeat;
+}
+#next > span,
+#prev > span {
+  display: block;
+
+  width: 16px;
+  height: 24px;
+}
+/* Arrows */
+#next > span {
+  background-position: -20px 0;
+}
+#prev > span {
+  background-position: 0 0;
+}
+#next,
+#prev {
+  position: absolute;
+  top: 50%;
+
+  margin-top: -20px;
+  padding: 10px 15px;
+
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+
+  border-radius: 5px;
+  background: rgba(0, 0, 0, .39);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#99000000', endColorstr='#99000000'); /* ie8 */
+       -o-user-select: none;
+}
+#prev {
+  left: 10px;
+}
+#next {
+  right: 10px;
+}
+.slide p {
+    color: #ffffff;
+    font-family: "Yantramanav", sans-serif;
+    font-weight: 100;
+    font-size: 60px;
+    letter-spacing: 0.1px;
+    line-height: 1;
+    margin: -110px 0 0;
+    padding: 0 10px 30px;
+    text-align: center;
+}
+.slider-inner .caption {
+  position: absolute;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  padding: 0 10px 30px;
+  font-family: 'Yantramanav-Thin';
+  font-size: 60px;
+  line-height: 1.0;
+  letter-spacing: 0.1px;
+  color: #ffffff;
+}
+.caption a {
+  display: block;
+
+  color: #fff;
+}
+.slider-nav {
+  line-height: 30px;
+  position: inherit;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30px;
+  margin: 0 0 20px;
+  padding: 0;
+
+  text-align: center;
+  /*background: #323232;*/
+  /*opacity: .9;*/
+
+  filter: alpha(opacity=90); /* ie8 */
+}
+.slider-nav a {
+  display: inline-block;
+
+  width: 8.9px;
+  height: 8.9px;
+  margin: 0 5px;
+
+  -webkit-transition: background .5s ease;
+     -moz-transition: background .5s ease;
+       -o-transition: background .5s ease;
+          transition: background .5s ease;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.slider-nav .active {
+  width: 8.9px;
+  height: 8.9px;
+
+  background: #2bb673;
+}
+
+
+
+
+
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  { outline: none; }
+
+.slides,
+.flex-control-nav
+{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.flex-direction-nav {
+  display: none;
+}
+
+.flexslider a img { outline: none; border: none; }
+
+.flexslider {
+  margin: 0;
+  padding: 0;
+}
+
+.flexslider .slides > li {
+  display: none;
+  -webkit-backface-visibility: hidden;
+}
+
+.flexslider .slides img {
+  width: 100%;
+  display: block;
+
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* Clearfix for the .slides element */
+.slides:after {
+  content: ".";
+  display: block;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  height: 0;
+}
+
+html[xmlns] .slides { display: block; }
+* html .slides { height: 1%; }
+
+/* Theme Styles */
+.flexslider {
+  position: relative;
+  zoom: 1;
+  padding: 0;
+  background: #ffffff;
+}
+
+/* Edit it if you want */
+.flex-container {
+  min-width: 150px;
+  max-width: 960px;
+}
+
+.flexslider .slides { zoom: 1.1;  }
+
+/* Control Nav */
+.flexslider .flex-control-nav {
+   bottom: 55px;
+    left: 0;
+    margin: 0 auto;
+    position: absolute;
+    right: 0;
+    text-align: left;
+    width: 82%;
+}
+
+.flex-control-nav li {
+  display: inline-block;
+  zoom: 1;
+}
+
+.flex-control-paging li a {
+  display: block;
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 10px;
+  height: 10px;
+  margin: 0 12.3px 0 0;
+  background-color: #fff;
+
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+}
+
+.flex-control-paging li a.flex-active {
+  background-color: #2bb673;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* Captions */
+.flexslider .slides p {
+  border-radius: 4px;
+  bottom: auto;
+  color: #ffffff;
+  font-family: "Yantramanav-Thin";
+  font-size: 92px;
+  left: -42%;
+  letter-spacing: 0.1px;
+  line-height: 1;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 160px;
+  width: 42%;
+}
+
+#ninja-slider .new-slider-logo{
+  top: 22.5%;
+}
+@media (max-width: 580px) {
+  .caption {
+    display: none;
+  }
+}

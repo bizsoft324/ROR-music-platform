@@ -1,0 +1,23 @@
+{
+  "name": "css-loaders",
+  "version": "1.2.0",
+  "homepage": "https://github.com/javoire/css-loaders",
+  "authors": [
+    "javoire <dahl.jonatan@gmail.com>"
+  ],
+  "description": "A collection of css loaders",
+  "keywords": [
+    "css",
+    "css3",
+    "loader",
+    "animation"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

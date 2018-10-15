@@ -1,0 +1,19 @@
+default: &default
+  cloud_name: beatthread
+  api_key: '871712775926284'
+  api_secret: 1n5S8GQaX7qJZd0jrBRqcFaGkvI
+  enhance_image_tag: true
+  static_image_support: false
+  secure: true
+
+development:
+  <<: *default
+
+production:
+  <<: *default
+
+staging:
+  <<: *default
+
+test:
+  <<: *default

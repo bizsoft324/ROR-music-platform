@@ -1,0 +1,66 @@
+// Modals
+
+.logins {
+  padding: 2rem 0;
+  margin-bottom: 2rem;
+  margin-left: 0;
+  text-align: center;
+
+  h4 {
+    font-size: 15px;
+    text-align: center;
+    letter-spacing: 1.9px;
+    text-transform: uppercase;
+    color: $darktext;
+    margin: 1em;
+  }
+  .button {
+    padding: 2em;
+    margin: 0 23px;
+    border: none; outline: none;
+
+    i {
+      color: $white;
+      position: relative;
+    }
+
+    &:hover { text-shadow: 0 0 10px #fff; text-decoration: none; }
+
+    &.email {
+      padding: 3rem 11rem;
+      background-color: $primary;
+      i { font-size: 50px;}
+    }
+    &.twitter { background-color: $twitter; }
+    &.soundcloud { background-color: $soundcloud; }
+    &.social {
+      padding: 3rem 11rem;
+      // padding: 3rem 4.2rem;
+      i { font-size: 40px; position: relative; }
+    }
+
+    &.submit {
+      float: right;
+      color: $white;
+      margin-top: 2em;
+      font-weight: 500;
+      letter-spacing: 2.2px;
+      text-transform: uppercase;
+      background-color: $primary;
+      font-family: "Yantramanav", sans-serif;
+      position: relative;
+      top: 1px;
+      padding: 1em;
+      padding-bottom: 1.5em;
+      padding-top: 2em;
+      border-radius: 0;
+      font-size: 15px;
+      border: 0;
+
+      &.inactive {
+        background-color:  $gray-accent;
+        &:hover, &:focus {text-shadow: none; text-decoration: none; }
+      }
+    }
+  }
+}

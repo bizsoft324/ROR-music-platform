@@ -1,0 +1,86 @@
+.beat-uploading-content#beat_uploading_content class="#{'visible' if @track.errors.present? || @track.id}"
+  .uploading-bar
+    .uploading-progress#progressbar Uploading...
+
+  .columns.beat-uploading-content__mobile-content
+    .column.is-5
+      .beat-uploading__left
+        = image_tag @track.image_url(:preview) || '', id: 'image_upload_preview'
+        = f.label :image, for: 'inputFile' do
+          .beat-uploading__browse#file_browse_wrapper
+            span Add Image
+        = f.input_field :image, as: :file, id: 'inputFile', accept: 'image/*', data: { parsley_required_message: t('.image_required') }
+        = f.error :image
+        - if @track.id
+          .beat-uploading__choose
+            = f.label :audio, for: 'upload-audio' do
+              = t('.choose_audio')
+            = f.input_field :audio, as: :file, class: 'hidden', id: 'upload-audio', accept: 'audio/mpeg, audio/mp3, audio/ogg, audio/x-aiff, audio/flac, application/octetstream'
+          = f.error :audio
+
+
+    .column.is-7
+      .beat-uploading-right
+        .beat-title
+          = f.input_field :title, as: :string, data: { parsley_required_message: t('.title_required') }
+          = f.error :title
+
+        .columns.is-gapless
+          .column.is-4.beat-section__left
+            .columns.is-gapless#share-list.is-mobile
+              .column.is-2-mobile.is-2-tablet.is-2-desktop
+                .edit-beat__left.chosen data-edit-left='true'
+                  = image_tag 'eye-two.jpg'
+                  span Private
+
+              .column.is-8-mobile.is-8-tablet.is-8-desktop
+                .edit-beat__slider data-edit-slider='true'
+                  = f.input_field :streamable, as: :boolean, class: 'hidden'
+
+              .column.is-2-mobile.is-2-tablet.is-2-desktop
+                .edit-beat__right data-edit-right='true'
+                  = image_tag 'eye-one.jpg'
+                  span Public
+
+            .genre-list
+              p.control
+                span.select
+                  = select_tag 'track[genre_ids][]', options_from_collection_for_select(@genres, :id, :name, @track.genre_ids.first), id: 'genre-select'
+
+              p.control
+                span.select#first-subgenre
+                  = select_tag 'track[subgenre_ids][]', options_from_collection_for_select(@track.subgenres_genre, :id, :name, @track.subgenre_ids[0]), data: { parsley_required_message: t('.subgenre_required') }, prompt: 'Choose Subgenre', class: 'subgenre-select', id: 'select_choose_subgenre', required: true
+
+              p.control
+                span.select#second-subgenre
+                  = select_tag 'track[subgenre_ids][]', options_from_collection_for_select(@track.subgenres_genre, :id, :name, @track.subgenre_ids[1]), prompt: 'Choose Subgenre', class: 'subgenre-select', id: 'select_choose_subgenre'
+
+          .column.is-8.beat-section__right
+            .beat-section__checkbox
+              input type='checkbox' class='checkbox' name='track[contactable]' id='contactable'
+              label for='contactable'
+                = t('.contact_me')
+                span
+                  | At:
+                  a href='#' = current_user.email if current_user
+              .beat-section__checks
+                input type='checkbox' class='checkbox' name='track[has_vocals]' id='has_vocals'
+                label for='has_vocals' = t('.has_vocals')
+                input type='checkbox' class='checkbox' name='track[downloadable]' id='downloadable'
+                label for='downloadable' = t('.downloadable')
+                input type='checkbox' class='checkbox' name='track[has_samples]' id='has_samples'
+                label for='has_samples' = t('.has_samples')
+            .control
+              .description#track_upload_description
+                = f.input_field :description, as: :text, class: 'textarea', data: { parsley_required_message: t('.description_required') }
+                = f.error :description
+
+        .columns.is-gapless
+          .column
+            .beat-uploading__bottom
+              = f.button :submit, 'finish', class: 'beat-uploading__button beat-uploading__button--finish', data: { disable_with: 'Wait...' }
+              - if @track.id
+                = link_to 'delete', track_path(@track.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'beat-uploading__button'
+                = link_to 'cancel', artist_track_list_path(artist_id: current_user.id), class: 'beat-uploading__button'
+              - else
+                = link_to 'cancel', '#', id: 'close-form', class: 'beat-uploading__button'

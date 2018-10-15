@@ -1,0 +1,61 @@
+@media (max-width: "800px")
+  .player
+    height: auto !important
+    padding: 15px
+    &__play
+      display: none
+    &__artist
+      height: 50px
+      display: none
+      img
+        width: 50px
+        height: 50px
+      span
+        font-size: 16px
+        font-weight: bold
+        line-height: 1.13
+        color: #4a4a4a
+      span.status
+        display: block
+        font-size: 12px
+        font-weight: 500
+        color: #a0a0a0
+      &.mobile
+        display: block
+    .collapse
+      display: block
+      position: absolute
+      right: 20px
+      top: 25px
+      color: #2bb673
+      font-size: 30px
+      & > .fa
+        display: none
+      & > .fa-caret-up
+        display: block
+      &.on > .fa-caret-up
+        display: none
+      &.on > .fa-close
+        display: block
+
+  body.padding-space .scroll-right
+    padding-bottom: 80px
+
+  body.padding-space .comment-box
+    bottom: 80px
+@media (max-width: "1140px")
+  .player
+    &__controls
+      display: none
+  body.padding-space .scroll-right
+    padding-bottom: 70px
+  body.padding-space .comment-box
+    bottom: 70px
+@media (max-width: "1200px")
+  .player
+    .player__critique
+      display: none
+  body.padding-space .scroll-right
+    padding-bottom: 70px
+  body.padding-space .comment-box
+    bottom: 70px

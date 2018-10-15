@@ -1,0 +1,28 @@
+#beat {
+  a:hover {
+    border-bottom: none;
+    text-decoration: none;
+  }
+  .critique-info {
+    a, a:hover {
+      font-size: 16px;
+      text-align: center;
+      line-height: 1.5;
+      color: $primary !important;
+      border-bottom: none !important;
+      text-transform: uppercase;
+      display: block;
+    }
+  }
+
+  .artist-name {
+    color: $primary;
+    padding: 0 10px;
+  }
+
+  [type=radio]:checked ~ label {
+    z-index: 5;
+    padding-bottom: 1.4rem;
+  }
+
+}

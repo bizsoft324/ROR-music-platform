@@ -1,0 +1,7 @@
+doctype html
+html
+  = render 'layouts/head'
+  body class="#{body_class}"
+    section.light-gray-bg
+      = yield
+      = insert_paloma_hook

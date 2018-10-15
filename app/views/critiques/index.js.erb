@@ -1,0 +1,23 @@
+var list = $('#critiques_list');
+var count = $('#critiques_count');
+list.html('');
+
+<% if params[:type] == 'given' %>
+  count.text(" <%= @given_comments.count %> CRITIQUES GIVEN");
+
+  <% if browser.device.mobile? %>
+    list.append("<%= j(render partial: 'critiques/critique_mobile', locals: { comments: @given_comments, type: 'given' }) %>")
+  <% else %>
+    list.append("<%= j(render partial: 'critiques/critique', locals: { comments: @given_comments, type: 'given' }) %>")
+  <% end %>
+
+<% else %>
+  count.text(" <%= @received_comments.count %> RECEIVED");
+  
+  <% if browser.device.mobile? %>
+    list.append("<%= j(render partial: 'critiques/critique_mobile', locals: { comments: @received_comments, type: 'given' }) %>")
+  <% else %>
+    list.append("<%= j(render partial: 'critiques/critique', locals: { comments: @received_comments, type: 'given' }) %>")
+  <% end %>
+  
+<% end %>

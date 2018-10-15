@@ -1,0 +1,83 @@
+- charts_page = current_page?(controller: :charts, action: :index)
+- cache [track, charts_page, track.image_url(:thumb), track.user.avatar_url(:thumb)] do
+  .beat#beat data-id=(track.id) data-done='false' rel="prefetch"
+    .beat__content.beat__content--left
+      - period = params[:period] || @period
+      - chart_position = track.chart_by_period(period, track_counter + 1, params[:page] || 1, charts_page )
+      .beat__bar
+        - if chart_position
+          .beat__month
+            span = chart_position
+            p = I18n.t('charts.charted_time.' + (period || (charts_page ? 'by_today_charts' : 'by_weeks_charts')))
+        - else
+          - if authenticated?
+            = render partial: 'beats/ratings', locals: { track: track }, cached: true
+          - else
+            = render partial: 'beats/ratings', locals: { track: track }
+
+      = link_to critique_path(track.id), remote: true do
+        = image_tag track.image_url(:thumb), fetch_format: :auto, class: 'avatar', rel: 'prefetch'
+
+    .beat__content
+      .beat__bar.beat__bar--border
+        - if chart_position
+          = render partial: 'beats/ratings', locals: { track: track }
+        .beat__critiques.title id="critiques_link_#{track.id}"
+          / = critique_show_link(track.critiques_count, track.id)
+          = link_to 'CRITIQUES', critique_path(track.id), remote: true
+      .beat__description
+        label for="info_pop_#{track.id}"
+          = image_tag 'verified-crown.svg' if track.user.verified?
+          = link_to "#{track.user.username}", artist_track_list_path(track.user_id), class: 'beat__artist-name'
+          = link_to "\"#{track.title}\"", critique_path(track.id), remote: true, class: 'beat__track-title'
+        input.beat__open-popup type='checkbox' id="info_pop_#{track.id}"
+        = render partial: 'beats/info_popup', locals: { track: track }
+        .separator-box
+          - if track.audio.present?
+            = render partial: 'shared/waveform', locals: { url: extract_url(track.audio.url), data: track.waveform, id: track.id }
+
+    - if authenticated? && track.user == current_user && current_page?(controller: 'artists', action: 'track_list', artist_id:  current_user.id)
+      .column.is-4.is-text-centered
+        .edit-beat data-edit-share='true'
+          .columns.is-gapless#share-list
+            .column.is-2.col-a
+              .edit-beat__left data-edit-left='true'
+                = image_tag 'eye-two.jpg'
+                span private
+            .column.is-8.col-b data-slider=(track.streamable ? 1 : 0) data-id=(track.id)
+              .edit-beat__slider data-edit-slider='true'
+            .column.is-2.col-c
+              .edit-beat__right data-edit-right='true'
+                = image_tag 'eye-one.jpg'
+                span Public
+          .columns.is-gapless
+            .column.is-6
+              = link_to 'Edit', edit_track_path(track.id), class: 'edit-share-link editable'
+            .column.is-6.text-right
+              = link_to :share, social_share_path(track.id), remote: true, class: 'edit-share-link shareable'
+        .edit-beat__note
+          Click “edit” to add info and assign genres to songs from Soundcloud
+    - else
+      .beat__forms
+        .beat-menu
+          .beat-menu__tab
+            input id="crit-#{track.id}" name="tab-group-#{track.id}" type='radio' checked='checked'
+            label for="crit-#{track.id}" Critique
+            .beat-menu__content
+              = render 'beats/critique', track: track
+          .beat-menu__tab
+            input name="tab-group-#{track.id}" type='radio' id="artist-story-#{track.id}"
+            label for="artist-story-#{track.id}" Story
+            .beat-menu__content
+              .beat-menu__content-story
+                = track.description
+          .beat-menu__tab
+            input name="tab-group-#{track.id}" type='radio' id="cont-#{track.id}"
+            label for="cont-#{track.id}" Contact
+            .beat-menu__content
+              | For inquiries, contact me here:
+              .beat-menu__email style="opacity: 0.5"
+                = mail_to "#{track.user.email}"
+          .beat-menu__tab
+            label
+              = link_to image_tag('share.svg'), social_share_path(track.id), remote: true, id: 'share-link'

@@ -1,0 +1,261 @@
+.beat
+  background: $white
+  margin: 0 auto 30px auto
+  max-width: 1160px
+
+  @include tablet
+    display: flex
+    height: 260px
+
+  .is-2
+    width: 29px
+
+  img
+    margin-left: 6px
+
+  &__forms
+    @include tablet
+      width: 35%
+
+  &__content
+    position: relative
+    display: block
+
+    @include tablet
+      width: 49%
+
+    &--left
+      @include tablet
+        width: 16%
+
+      .avatar
+        background-position: center center
+        background-repeat: no-repeat
+        background-size: cover
+        height: 169px
+        margin-left: 10px
+        width: 92%
+
+        @include mobile
+          width: 90%
+          margin: 0 20px
+
+        img
+          max-width: 100%
+
+  &__artist-name
+    padding: 0 10px
+    line-height: 71px
+    color: $primary !important
+
+  &__track-title
+    line-height: 71px
+    color: black !important
+
+  &__bar
+    display: flex
+    height: 75px
+
+    &--border
+      background-image: linear-gradient($gray-accent 65%, $white 0%)
+      background-position: right
+      background-size: 1px 75px
+      background-repeat: repeat-y
+
+  &__month
+    display: inline-block
+    height: 65px
+    width: 185px
+    font-family: 'Yantramanav', sans-serif
+    background-color: $gold-orange
+    background-image: image-url("date-icon.jpg")
+    background-repeat: no-repeat
+
+    span
+      color: $white
+      display: inline-block
+      font-weight: 300
+      font-size: 36px
+      letter-spacing: -1.2px
+      line-height: 70px
+      padding-left: 16px
+      width: 72px
+      text-align: center
+
+    p
+      color: $white
+      float: right
+      font-size: 10px
+      letter-spacing: 2.2px
+      margin: 5px 5px 0px 0px
+      text-transform: uppercase
+      font-weight: bold
+
+  &__ratings
+    margin: 0
+    padding: 2em 0 1em 1em
+    list-style: none
+    display: inline-block
+    border-left: solid 1px $gray-accent
+    position: absolute
+    width: 300px
+
+    a
+      text-decoration: none
+
+
+    li
+      display: inline-block
+      font-size: 14px
+      letter-spacing: 0.5px
+      color: #4a4a4a
+      padding-right: 10px
+      line-height: 21px
+      vertical-align: middle
+
+    img
+      vertical-align: middle
+
+    svg
+      width: 21px
+      height: 21px
+
+      &.like, &.dislike
+        path
+          fill: #CDCDCD
+
+      &.indifferent
+        circle
+          fill: #CDCDCD
+
+      &.like.active
+        path
+          fill: red
+
+      &.dislike.active
+        path
+          fill: blue
+
+      &.indifferent.active
+        circle
+          fill: orange
+
+
+    &--active
+      li
+        animation: fade 1s
+
+        &.like
+          animation-delay: .3s
+
+        &.indifferent
+          animation-delay: .6s
+
+        &.dislike
+          animation-delay: 1s
+
+      @keyframes fade
+        50%
+          opacity: 0
+
+    span
+      padding: 0 8px
+      position: relative
+      color: #4a4a4a
+      top: 1px
+
+    .disabled
+      pointer-events: none
+      cursor: not-allowed
+
+
+  &__critiques
+    padding-right: 25px
+    margin-left: auto
+    margin-right: 10px
+    line-height: 75px
+
+    a
+      font-size: 18px
+      color: $primary
+      font-weight: 400
+
+    &--active
+      animation: shake 1.5s
+      transform: translate(0, 0)
+      backface-visibility: hidden
+
+    @keyframes shake
+      10%, 90%
+        transform: translate(-1px, 0)
+
+      20%, 80%
+        transform: translate(2px, 0)
+
+      30%, 50%, 70%
+        transform: translate(-4px, 0)
+
+      40%, 60%
+        transform: translate(4px, 0)
+
+    span
+      font-weight: 700
+
+
+  &__description
+    width: 100%
+    background: $lightgray
+    display: inline-block
+    position: absolute
+    letter-spacing: 1.5px
+    font-weight: 400
+    color: $darktext
+    text-transform: capitalize
+
+    img
+      width: 30px
+
+    label
+      display: flex
+      justify-content: flex-start
+      white-space: nowrap
+      overflow: hidden
+      text-overflow: ellipsis
+      height: 71px
+
+    span:first-letter
+      text-transform: uppercase
+
+  &__open-popup
+    width: 0
+    opacity: 0
+    position: absolute
+
+    &:hover ~ .popup
+      visibility: visible
+      opacity: 1
+
+  .separator-box
+    display: inline-block
+    position: relative
+    width: 100%
+    .spinner-loader
+      width: 6em
+      height: 6em
+.form-track
+
+  .open-popup
+    width: 0
+    opacity: 0
+
+  .open-popup:focus ~ .popup
+    visibility: visible
+    opacity: 1
+
+  .popup--info
+    left: 25%
+    padding: 1em
+    top: -25px
+    width: 300px
+    font-weight: 900
+    font-family: "Yantramanav", sans-serif

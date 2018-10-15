@@ -1,0 +1,99 @@
+#mobile-navigation
+  display: flex
+  z-index: 2000
+  .nav
+    position: fixed
+    height: 70px
+    width: 100%
+    background-color: rgba(0, 0, 0, 1)
+    z-index: 200
+
+    img
+      @include mobile
+        height: 50px
+        max-height: 50px
+        position: relative
+        top: 9px
+        left: -10px
+
+
+    .nav-item
+      padding: 15px 10px
+
+      a
+        font-size: $size-6
+        font-weight: $weight-bold
+        color: $link
+
+      &.is-page-title
+        letter-spacing: 1.8px
+        font-size: $size-5
+        color: $lightgray
+        text-transform: uppercase
+
+    .nav-left
+      .icon
+        height: 70px
+        width: 70px
+        z-index: 9999999
+
+        &:hover, &:focus
+          background-color: $timber_green
+
+    .nav-menu
+      background-color: $black_17
+      opacity: 0.95
+      padding: 100px 0px 45px
+      z-index: 5000
+      position: absolute
+      height: 100vh
+      width: 100%
+
+      ul
+        padding: 0px
+        
+      .nav-item
+        border: none
+        padding: 25px 10px
+
+        &:hover, &:focus
+          background-color: $timber_green
+
+        a
+          font-size: 16px
+          font-weight: $weight-normal
+          text-transform: uppercase
+
+    .nav-right
+      min-width: 50px
+
+      .avatar-item
+        height: 45px
+        width: 45px
+        border-radius: 50%
+        position: relative
+
+        .icon
+          position: absolute
+          top: 0
+          z-index: -10
+
+      &.sign-up-item
+        background-color: transparent
+        position: relative
+
+        .icon
+          position: absolute
+          top: 0
+          z-index: -10
+
+    .is-brand
+      width: 40px
+      height: 45px
+
+  .beat-header-mobile
+    padding: 10px 15px 20px
+    background-color: #282832
+    box-shadow: 0 3px 14px 0 rgba(0, 0, 0, 0.5)
+    position: relative
+    z-index: 100

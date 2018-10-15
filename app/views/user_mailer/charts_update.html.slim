@@ -1,0 +1,97 @@
+sass:
+  .mailer
+    background: #f0f0f0
+    color: #4a4a4a
+
+    &-header
+      padding: 20px
+      background: black
+
+      &__title
+        display: inline-block
+        color: #2bb673
+        margin-top: 30px
+        vertical-align: top
+        text-transform: uppercase
+        float: right
+        letter-spacing: 1.5px
+        font-size: 12px
+
+    &-content
+      padding: 20px
+      font-size: 18px
+      font-family: 'Yantramanav'
+
+      &__title
+        font-size: 32px
+        font-weight: normal
+
+      &__desc
+        display: inline-block
+        margin-top: 21px
+        height: 52px
+        line-height: 1.44
+        font-weight: 300
+
+        span
+          color: #2bb673
+
+      &__comment
+        background: white
+        padding: 14px 16px 17px
+        line-height: 1.27
+        margin-top: 11px
+        overflow-wrap: break-word
+
+      &__link
+        margin-top: 17px
+
+        a
+          text-decoration: none
+          font-weight: bold
+          color: #2bb673
+
+      &__footer
+        margin: 53px 0 19px
+
+        span
+          font-weight: bold
+
+.mailer
+  .mailer-header
+    = email_image_tag('newsletter_logo.png')
+    span.mailer-header__title = t('.header_title')
+  .mailer-content
+    .mailer-content__title = t('.content_title', name: @user.username)
+    .mailer-content__desc
+    .info = t('.charts_update')
+    - @data.each do |track, track_data|
+
+      .info
+        span => "\"#{track}\""
+        |is currently at position:
+      .mailer-content__comment
+        - if track_data['Week']
+          = "This Week:  #{track_data['Week']['position']}"
+          br
+          - if track_data['Week']['moved']
+            = "You moved #{track_data['Week']['moved'].keys.last} #{pluralize(track_data['Week']['moved'].values.last, 'spot')}."
+            br 
+        - if track_data['Month']
+          = "This Month: #{track_data['Month']['position']}"
+          br
+          - if track_data['Month']['moved']
+            = "You moved #{track_data['Month']['moved'].keys.last} #{pluralize(track_data['Month']['moved'].values.last, 'spot')}."
+            br
+        - if track_data['AllTime']
+          = "All Time: #{track_data['AllTime']['position']}"
+          br
+          - if track_data['AllTime']['moved']
+            = "You moved #{track_data['AllTime']['moved'].keys.last} #{pluralize(track_data['AllTime']['moved'].values.last, 'spot')}." 
+        = "You're in the top ten!" if track_data['top_ten']
+
+    .mailer-content__link
+      = link_to t('.charts'), charts_url
+    .mailer-content__footer
+      p = t('.our_hope')
+      span = t('.team')

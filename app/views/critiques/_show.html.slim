@@ -1,0 +1,57 @@
+= image_tag @track.image_url(:original), class: 'background-track-image'
+section#critiques.artist-bg-img
+  .center-container
+    .artist__wrap
+      .artist__info
+        .artist__header
+          span
+            .artist__thumb
+              = image_tag @track.user.avatar.url
+          span
+            span.verified-icon
+              = inline_svg 'verified-crown.svg' if @track.user.verified?
+          span
+            h4
+              = link_to "#{@track.user.username}", artist_track_list_path(@track.user_id)
+              span "#{@track.title}"
+      .columns.is-gapless.rectangle-232
+        .column.is-3
+          = image_tag @track.image_url(:thumb), class: 'artist__avatar'
+        .column.is-9
+          .is-clearfix.artist__header-bottom
+            .is-pulled-left
+              = render partial: 'beats/ratings', locals: { track: @track }
+            .is-pulled-right
+              ul.top-list
+                li
+                  a.modal-button data-target='#share_song'
+                    = link_to image_tag('share.svg'), social_share_path(@track), remote: true, id: 'share-link'
+          .artist__streams#beat data-done='false' data-id=(@track.id)
+            = render partial: 'shared/waveform', locals: { url: extract_url(@track.audio.url), data: @track.waveform, id: @track.id }
+
+    .critique-filter
+      .is-clearfix
+        .is-pulled-left
+          .critique-counter#critiques_counter = t('count_critiques', count: @track.critiques_count)
+        .is-pulled-right.sort-filter
+          .uk-form-select.uk-button data-uk-form-select=''
+            span
+            i.uk-icon-caret-down
+            = select '', :sort, options_for_select([['Newest - Oldest', 'recent'], ['Oldest - Newest', 'old']]), {},
+                                data: { remote: true, url: critique_path(track_id: @track.id), method: :get },
+                                id: 'critiques_order'
+    ul.critique-commented-wrap.comment-lists.reminders#critique_comment_list
+      = render partial: 'critiques/comment', collection: @comments, locals: { animated_class: '' }
+
+    - if authenticated?
+      .comment-box--space
+      .comment-box
+        = form_for :comment, url: '/comments', html: { method: :post, id: "form_show_#{@track.id}", remote: :true} do |f|
+          .comment-area#comment-content
+            .comment-box__error.error
+            = hidden_field_tag :track_id, @track.id
+            = f.text_area :body, placeholder: 'Type comment here', data: { live: track.id }
+            span.characters-amount data-count="#{track.id}"
+             |0
+            = button_tag 'submit', class:'uk-button send-btn uk-button-success uk-button-large', type: 'submit', data: { disable_with: arrow_wait } do
+              = image_tag 'up-arrow.png', class: 'send_comment--submit'

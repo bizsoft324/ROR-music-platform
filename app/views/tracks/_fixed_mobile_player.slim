@@ -1,0 +1,34 @@
+.card.fixed-player-mobile__player-card
+  p.info Playing
+  .card-content
+    .media
+      .media-left
+        .icon-lg
+          span.verified-icon
+            img alt=("Verified crown") src="/assets/verified-crown.svg" /
+          = image_tag @current_track.user.avatar.url(:thumb), class: 'avatar'
+
+      .media-content
+        h6 = @current_track.user&.name
+        p = @current_track.title
+- unless @current_track.critiques.empty?
+  .fixed-player-mobile__comments-wrapper
+    - @current_track.critiques.each do |critique|
+      = render partial: 'comment', collection: critique.comments
+- else
+  p.comment-message No Comments Yet. Please leave one !
+  
+.fixed-player-mobile__comment-form
+  = form_for :comment, html: { id: "form_#{@current_track.id}_fixed" } do |f|
+    = hidden_field_tag :track_id, @current_track.id
+    = f.text_area :body, placeholder: true, class: 'textarea', data: { live: @current_track.id, 'fixed-textarea': @current_track.id }
+    span.beat-menu__error id="err_#{@current_track.id}"
+  - if authenticated?
+    .fixed-player-mobile__btn-send
+      span onclick=("send_comment(#{@current_track.id}, true);return false") id="send_#{@current_track.id}" Send
+  - else
+    label for="pop_#{@current_track.id}"
+      .fixed-player-mobile__btn-send
+        span id="send_btn_#{@current_track.id}" Send
+    input.beat__open-popup type='checkbox' id="pop_#{@current_track.id}"
+    = render 'beats/alert_popup'

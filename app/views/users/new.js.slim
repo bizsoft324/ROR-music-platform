@@ -1,0 +1,18 @@
+| if($(window).width() > 480){
+| $.lazybox("#{j(render partial: 'form', locals: {user: @user})}");
+| $('#sign-up-form').parsley({successClass: "has-success", errorClass: "has-error"});
+| }
+| else {
+|   $('#mobile-sign-up-form').remove();
+|   var mobileFormWrapper = document.createElement('div');
+|   mobileFormWrapper.setAttribute('id', 'mobile-sign-up-form');
+|   mobileFormWrapper.setAttribute('class', 'mobile-sign-up-wrapper');
+|   $('body, html').addClass('has-overflow-hidden');
+|   $('#sign-in-item').hide();
+|   $('#toggle-sign-up').show();
+|   $('body').prepend(mobileFormWrapper);
+|   $('#mobile-sign-up-form').prepend('#{j(render partial: 'form', locals: {user: @user})}')
+| }
+- if @user.errors.present?
+  | $('.form-create-account .form-user').addClass('hide').removeClass('show');
+  | $('.form-create-account span.error').first().parents('.form-user').removeClass('hide').addClass('show');

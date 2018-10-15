@@ -1,0 +1,22 @@
+{
+  "name": "beat-thread",
+  "homepage": "https://github.com/DannyQuick/beat-thread",
+  "authors": [
+    "Copywright <techniquea2z@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/assets/components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "css-loaders": "^1.2.0"
+  }
+}

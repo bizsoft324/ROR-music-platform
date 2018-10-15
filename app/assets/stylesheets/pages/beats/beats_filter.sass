@@ -1,0 +1,200 @@
+.not-full
+  background-color: $dark-gray
+
+.selectize-control > .not-full
+  background-color: #fff
+
+.selectize-control ~ .selectize-input
+  width: 90%
+  padding: 1rem
+  border-radius: 1.4rem
+  text-indent: 2rem
+  font-size: 1.5rem
+  padding-top: 7px
+  padding-bottom: 7px
+  background-color: $dark-gray !important
+  &:focus
+    background-color: $dark-gray
+    color: $lighttext
+    padding-left: 15px
+
+.select-list
+  display: flex
+  justify-content: space-between
+
+  .beat-select
+    background: transparent image-url("track-arrow.png") no-repeat scroll right 15px top 5px
+    background-color: #222222
+    height: 45px
+    overflow: hidden
+    width: 220px
+    display: inline-block
+
+    &__button
+      font-family: 'Yantramanav', sans-serif
+      font-size: 14px
+      width: inherit
+      height: inherit
+      text-align: left
+      color: #9c9c9c
+      vertical-align: sub
+      padding-left: 20px
+
+      &:focus
+        pointer-events: none
+
+      &:focus ~ .beats-filter__panel
+        max-height: 75vh
+        padding-top: 5px
+        transition: max-height .3s, padding-top .3s
+
+    select
+      font-family: 'Yantramanav', sans-serif
+      font-size: 14px
+      color: #9c9c9c
+      -moz-appearance: none
+      -webkit-appearance: none
+      appearance: none
+      padding-left: 20px
+      width: 220px
+      cursor: pointer
+
+  i.search-inside
+    position: relative
+    top: 8px
+    left: -7px
+    font-size: 24px
+
+  .search-filter
+    font-family: 'Yantramanav', sans-serif
+    width: 100%
+    position: relative
+
+    input
+      width: 90%
+      padding: 1rem
+      border-radius: 1.4rem
+      text-indent: 2rem
+      font-size: 1.5rem
+      padding-top: 7px
+      padding-bottom: 7px
+      &:focus
+        background-color: $dark-gray
+        color: $lighttext
+        padding-left: 15px
+
+    .under-input-text
+      text-align: center
+      margin-bottom: 0
+      span
+        background-color: #2BB673
+        display: inline-block
+        padding: .25em .4em
+        font-size: 110%
+        font-weight: 700
+        line-height: 1
+        color: #fff
+        text-align: center
+        white-space: nowrap
+        vertical-align: baseline
+        border-radius: .25rem
+        margin-right: 10rem
+
+  .fa-search
+    position: absolute
+    top: 24px
+    left: 7px
+    font-size: 15px
+
+    .search-trigger
+      font-size: 18px
+
+    a
+      padding: 0.4rem 0.7rem
+      border-radius: 5rem
+      background-color: $dark-gray
+      &:hover
+        background-color: whitesmoke
+        color: $lighttext
+      &.active
+        background-color: $white
+        color: $green
+        &:hover
+          background-color: $dark-gray
+    i:before
+      vertical-align: top
+
+.beats-filter
+  &__title
+    font-size: 14px
+    font-weight: 500
+    letter-spacing: 1.9px
+    color: #9b9b9b
+    margin: 0
+    text-align: center
+
+  &__panel
+    overflow: auto
+    height: auto
+    max-height: 0
+    color: $darktext
+    background: white
+    width: 220px
+    position: absolute
+    margin: 0
+    padding: 0
+    letter-spacing: 1.9px
+    text-transform: uppercase
+    box-shadow: 0 30px 50px 0 rgba(0, 0, 0, 0.4)
+    transition: max-height .5s .3s, padding-top .5s .3s
+
+    li
+      padding-bottom: 10px
+      padding-right: 10px
+
+    label
+      float: right
+      vertical-align: middle
+      margin: 0 !important
+
+    img
+      height: 26px
+
+    &--sorting
+      input[type=radio]
+        display: none
+
+      [type=radio]:checked + label
+        border-bottom: none
+        padding-bottom: 0
+
+      label
+        line-height: normal
+        padding: 12px 0 12px 20px !important
+        float: left
+        width: 100%
+        margin-bottom: 4px !important
+
+        &:hover
+          background-color: #efefef
+
+      li
+        padding-right: 0
+
+    &--horizontal
+      li
+        display: inline-block
+        text-align: center
+        padding: 20px 0
+
+      input[type=checkbox].checkbox + label
+        display: block
+        float: none
+        padding: 15px 18px
+
+    &::-webkit-scrollbar
+      width: 5px
+
+    &::-webkit-scrollbar-thumb
+      border-radius: 5px
+      -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5)

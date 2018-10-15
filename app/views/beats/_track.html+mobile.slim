@@ -1,0 +1,79 @@
+- cache ['v1', track, track.ratings, track.image_url(:thumb), current_user] do
+  #beat data-id=(track.id) data-done='false'
+    .column
+      - if chart = track.chart_by_period(params[:period])
+        .beat-chart-header
+          .beat__month
+            span = chart
+            p = t('charts.charted_time.' + (params[:period] || 'by_week_charts'))
+      .beat-list-mobile
+        .beat-mobile-header
+          .media-left
+            .icon-lg
+              span.verified-icon
+                = image_tag 'verified-crown.svg' if track.user.verified?
+              = image_tag track.user.avatar.url(:thumb), class: 'avatar'
+
+          .media-body
+            h6 = link_to "#{track.user&.username}", artist_track_list_path(track.user_id), class: 'is-capital'
+            p = track.title
+
+        .beat-mobile-content
+          .beats-show
+            - if track.audio.present?
+              .fill-1.mobile-waveform-play data-id="#{track.id}"
+                i#play-btn-1.uk-icon-play.play-btn
+              .mobile-track-player data-id="#{track.id}"
+                = render partial: 'shared/waveform', locals: { url: extract_url(track.audio.url), data: track.waveform, id: track.id }
+            = image_tag track.image_url(:thumb)
+          .beats-rating-tab-view data-id="#{track.id}"
+            ul.beat__ratings id = "rating_list_#{track.id}"
+              li.like
+                = rating_link track.id, 'fire', 'like'
+                span id="like_#{track.id}"
+                  | #{track.like_count}
+              li.indifferent
+                = rating_link track.id, 'sad', 'indifferent'
+                span id="indifferent_#{track.id}"
+                  | #{track.indifferent_count}
+              li.dislike
+                = rating_link track.id, 'unlike', 'dislike'
+                span id="dislike_#{track.id}"
+                  | #{track.dislike_count}
+          .beats-critique-tab-view data-id="#{track.id}"
+            .tabs
+              ul
+                li.critique-tab.is-active data-id="#{track.id}"
+                  |Critique
+
+                li.info-tab data-id="#{track.id}"
+                  |Story
+
+                li.contact-tab data-id="#{track.id}"
+                  |Contact
+
+                li data-id="#{track.id}"
+                  = link_to image_tag('share.svg'), social_share_path(track), remote: true, id: 'share-link'
+
+
+            .mobile-tab
+              .critique-tab-view.mobile-tab-content.is-active data-id="#{track.id}"
+                = render 'beats/critique', track: track
+              .contact-tab-view.mobile-tab-content data-id="#{track.id}"
+                p For Inquiries, contact me here:
+                input.input.beat-menu__email placeholder="#{track.user.email}" type='text'
+              .info-tab-view.mobile-tab-content data-id="#{track.id}"
+                / = render partial: 'beats/info', locals: { track: track }
+                = track.description
+              .share-tab-view.mobile-tab-content data-id="#{track.id}"
+
+        .beat-mobile-footer
+          ul
+            li.tab.beats-rating-tab data-id="#{track.id}"
+              .tab-label
+                |rate
+              i
+            li.tab.beats-critique-tab data-id="#{track.id}"
+              .tab-label
+                |critique
+              i

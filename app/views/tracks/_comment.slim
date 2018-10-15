@@ -1,0 +1,10 @@
+.card.fixed-player-mobile__critique-card
+  .card-content
+    .media
+      .media-left
+        .icon-lg
+          = image_tag comment.user.avatar.url(:thumb), class: 'avatar'
+
+      .media-content
+        h6 = comment.user&.name
+        p = comment.body
